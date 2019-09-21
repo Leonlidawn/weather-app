@@ -1,22 +1,87 @@
-.App {
+
+.app{
+  border:solid red 1px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+
+.cardHeader{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cardHeader .currentWeather{
+  /* background-color: antiquewhite; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+
+}
+
+.gap{
+  flex:1;
+}
+
+.cardHeader .currentWeather{
+  /* background-color: antiquewhite; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.currentWeather .additionalDetails{
+  display:inline-flex;
+}
+
+.cardHeader .country{
+  flex: 1;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.cardBody{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.cardBody .twitterFeedSection{
+  flex:1;
 }
+
+.twitterFeedSection .header{
+  display: flex;
+  justify-content: flex-start;
+  margin-left:10%;
+}
+
+.twitterFeedSection .body{
+  display:flex;
+  flex-direction: column;
+}
+
+.twitterFeedSection .body .tweets .tweet{
+  padding-left:10%;
+  padding-right:10%;
+}
+
+.twitterFeedSection .body .navigation{
+  margin: 0 auto;
+  width:fit-content;
+}
+
+.cardBody .weekDayDetails{
+  display: inline-flex;
+  flex:2;
+  flex-wrap: wrap;
+}
+
+.weekDayDetails .weekDay{
+  text-align: center;
+  flex:1;
+}
+
