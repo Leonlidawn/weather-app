@@ -1,16 +1,57 @@
 
 .app{
-  border:solid red 1px;
-  width: 70%;
-  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.app, .card::before{
+  background: url(./image/weatherBackground.jpg) 0 / cover fixed;
 }
 
 
+
+.card{
+  position:relative;
+  overflow: hidden;
+
+  box-shadow: 0 0 10px 1px #555;
+  border-radius: 1vw;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+
+}
+ 
+.card::before{
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin:-50px;
+  z-index:-1; 
+  filter:blur(20px);
+} 
+
+
+
+
+/* ==========card header====================================== */
+
 .cardHeader{
+  padding-top: 3vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-family: 'Varela Round', sans-serif;
+  text-transform: uppercase;
+  /* background-color: rgba(10, 10, 10, 0.4); */
+  border-top-left-radius:  inherit;
+  border-top-right-radius:  inherit;
 }
+
+
 
 .cardHeader .currentWeather{
   /* background-color: antiquewhite; */
@@ -41,38 +82,50 @@
 .cardHeader .country{
   flex: 1;
   text-align: center;
+  font-weight: bold;
+  text-decoration-line: underline;
 }
 
+/* ==========card body====================================== */
 
 
 .cardBody{
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   display: flex;
+  background-color:white;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
+/* ==========cardBody--twitterFeedSection================================ */
 
 .cardBody .twitterFeedSection{
   flex:1;
 }
 
-.twitterFeedSection .header{
+.twitterFeedSection-header{
+  font-family: 'Nova Round', cursive;
+
   display: flex;
   justify-content: flex-start;
   margin-left:10%;
 }
 
-.twitterFeedSection .body{
+.twitterFeedSection-body{
   display:flex;
   flex-direction: column;
 }
 
-.twitterFeedSection .body .tweets .tweet{
+.twitterFeedSection-body .tweets .tweet{
   padding-left:10%;
   padding-right:10%;
 }
 
-.twitterFeedSection .body .navigation{
-  margin: 0 auto;
-  width:fit-content;
+.twitterFeedSection-body .navigation{
+  display:  flex;
+  justify-content: center;
 }
+/* ==========cardBody--weekDayDetails================================ */
 
 .cardBody .weekDayDetails{
   display: inline-flex;
@@ -82,6 +135,18 @@
 
 .weekDayDetails .weekDay{
   text-align: center;
+  text-transform: uppercase;
   flex:1;
 }
 
+
+.temperature:after{
+  content:"‎℃";
+}
+
+.humidity div:last-child:after{
+  content:"‎%";
+}
+.wind div:last-child:after{
+  content:"‎ k/m";
+}
