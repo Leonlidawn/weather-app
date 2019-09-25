@@ -30,7 +30,7 @@ function App() {
               </div>
 
               <div className="delimeter">
-                |
+
               </div>
 
               <div className="wind">

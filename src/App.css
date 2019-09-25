@@ -59,7 +59,7 @@
   border-top-left-radius:  inherit;
   border-top-right-radius:  inherit;
 
-
+  padding-bottom: 4px;
   flex-wrap: wrap;
 }
 
@@ -72,7 +72,7 @@
   flex-direction: column;
   flex: 1;
   text-align: center;
-  min-width: 180px;
+  min-width: 380px;
 
 }
 
@@ -92,23 +92,22 @@
 
 }
 
-
-
-
-
 .cardHeader .country{
   flex: 1;
   text-align: center;
   font-weight: bold;
   text-decoration-line: underline;
   min-width: 70px;
-  padding:4px;
+  padding:10px;
 }
 
 /* ==========cardHeader--additionalDetails================================ */
 
+.cardHeader .temperature{
+  font-size: 4rem;
+}
 .temperature:after{
-  content:"‎℃";
+  content:"‎°";
 }
 
 
@@ -130,9 +129,10 @@
   flex:"‎1";
 }
 .delimeter{
-  flex-basis: 0px;
-  line-height: 2;
+  background-color:rgba(23, 24, 20, 0.329);
+  min-width: 2px;
   flex:"‎1";
+
 }
 
 
