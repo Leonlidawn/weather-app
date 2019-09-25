@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  min-width: 360px;
 }
 
 .app, .card::before{
@@ -143,6 +143,7 @@
   padding-top: 3vh;
   padding-bottom: 3vh;
   display: flex;
+  flex-wrap: wrap;
   background-color:white;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
@@ -238,5 +239,33 @@
   max-width:5vw;
 }
 
+.cardBodyDivider744{
+  width:3px;
+  background: rgb(219, 223, 212);
+}
 
+/*=====media queries=========*/
+@media all and (max-width: 744px){
+  .cardBody{
+    flex-flow: column-reverse;
+  }
+  
+  .cardBodyDivider744{
+    width:90%;
+    margin:auto;
+    height: 3px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+  }
+ }
+
+@media all and (max-width: 1024px){
+    /* use a breakpoint to push elements behind to next rows */
+   .weekdayBreak1024{
+      margin-right: 100%;
+
+   }
+  
+}
 

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 //placeholders ==========
-import weatherIcon from './images/weathericon.svg';
+import weatherIcon from './images/weatherIcon.svg';
 import avatarIcon from './images/avatar.svg';
 //             ==========
 
@@ -50,7 +50,7 @@ function App() {
 
             <div className="twitterFeedSection-header">
 
-              <div className='a'><FontAwesomeIcon icon={faTwitter} style={{ display: "block", marginBottom: '0', marginRight:'0.5rem', fontSize:'1.3rem', color: 'rgb(114, 179, 223)' }} /></div>
+              <div className='a'><FontAwesomeIcon icon={faTwitter} style={{ display: "block", marginBottom: '0', marginRight: '0.5rem', fontSize: '1.3rem', color: 'rgb(114, 179, 223)' }} /></div>
               <div className="title">Twitter Feed</div>
               <div className="country">france</div>
             </div>
@@ -74,6 +74,7 @@ function App() {
               </div>
             </div>
           </div>
+          <div className="cardBodyDivider744"></div>
 
           <div className="weekDayDetails">
 
@@ -89,6 +90,9 @@ function App() {
               <div className="temperature">9</div>
               <div className="status">raining</div>
             </div>
+
+            <div className="weekdayBreak1024"></div>
+
             <div className="weekDay">
               <div className="Day">wed</div>
               <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
