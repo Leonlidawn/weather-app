@@ -1,5 +1,13 @@
 import React from 'react';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+
+//placeholders ==========
+import weatherIcon from './images/weathericon.svg';
+import avatarIcon from './images/avatar.svg';
+//             ==========
+
 
 function App() {
   return (
@@ -21,6 +29,10 @@ function App() {
                 <div>64</div>
               </div>
 
+              <div className="delimeter">
+                |
+              </div>
+
               <div className="wind">
                 <div>wind</div>
                 <div>12</div>
@@ -28,7 +40,6 @@ function App() {
             </div>
 
           </div>
-          <div className="gap"></div>
           <div className="country">france</div>
 
         </div>
@@ -38,18 +49,24 @@ function App() {
           <div className="twitterFeedSection">
 
             <div className="twitterFeedSection-header">
+
+              <div className='a'><FontAwesomeIcon icon={faTwitter} style={{ display: "block", marginBottom: '0', marginRight:'0.5rem', fontSize:'1.3rem', color: 'rgb(114, 179, 223)' }} /></div>
               <div className="title">Twitter Feed</div>
               <div className="country">france</div>
             </div>
             <div className="twitterFeedSection-body">
               <div className="tweets">
                 <div className="tweet">
-                  <div className="avatar"></div>
-                  <div className="tweetContent">tweet content </div>
+                  <img src={avatarIcon} alt="avatar" className="avatar" />
+                  <div className="tweetContent">tw09io23qndalskcn[09  eet content </div>
                 </div>
                 <div className="tweet">
-                  <div className="avatar"></div>
-                  <div className="tweetContent">tweet content </div>
+                  <img src={avatarIcon} alt="avatar" className="avatar" />
+                  <div className="tweetContent">twee0[9q2ipon3lkv fsa[9-0 pq23i;ontvt content </div>
+                </div>
+                <div className="tweet">
+                  <img src={avatarIcon} alt="avatar" className="avatar" />
+                  <div className="tweetContent">twee0asfas  2oi'nf2fon'piqnfpinln'pacns'p3nq''npio'n [9q2ipon3lkv fsa[9-0 pq23i;ontvt content </div>
                 </div>
                 <div className="navigation">
                   <button>Next</button>
@@ -62,31 +79,31 @@ function App() {
 
             <div className="weekDay">
               <div className="Day">mon</div>
-              <image>image</image>
+              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
               <div className="temperature">9</div>
               <div className="status">raining</div>
             </div>
             <div className="weekDay">
               <div className="Day">tue</div>
-              <image>image</image>
+              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
               <div className="temperature">9</div>
               <div className="status">raining</div>
             </div>
             <div className="weekDay">
               <div className="Day">wed</div>
-              <image>image</image>
+              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
               <div className="temperature">9</div>
               <div className="status">raining</div>
             </div>
             <div className="weekDay">
               <div className="Day">thu</div>
-              <image>image</image>
+              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
               <div className="temperature">9</div>
               <div className="status">raining</div>
             </div>
             <div className="weekDay">
               <div className="Day">fri</div>
-              <image>image</image>
+              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
               <div className="temperature">9</div>
               <div className="status">raining</div>
             </div>
