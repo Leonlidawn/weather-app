@@ -12,111 +12,100 @@ import avatarIcon from './images/avatar.svg';
 function App() {
   return (
     <div className="app">
-      <div className="card">
-        <div className="cardHeader">
-
-          <div className="currentWeather">
-
-            <div className="basicDetails">
-              <div className="temperature">12</div>
-              <div className="status">cloudy</div>
-            </div>
-
-            <div className="additionalDetails">
-
-              <div className="humidity">
-                <div>humidity</div>
-                <div>64</div>
+      <main>
+        <div className="card">
+          <div className="card__header">
+            <section className="card__header__current-weather">
+              <div>
+                <p className="temperature">12</p>
+                <p className="status">cloudy</p>
               </div>
+              <ul>
+                <li className="humidity">
+                  <h1>humidity</h1>
+                  <p>64</p>
+                </li>
 
-              <div className="delimeter">
+                <li className="wind">
+                  <h1>wind</h1>
+                  <p>12</p>
+                </li>
+              </ul>
+            </section>
 
-              </div>
-
-              <div className="wind">
-                <div>wind</div>
-                <div>12</div>
-              </div>
-            </div>
+            <section className="card__header__current-country">france</section>
 
           </div>
-          <div className="country">france</div>
 
+          <div className="card__body">
+
+            <section className="card__body_twitterFeeds">
+
+              <div className="twitterFeeds__header">
+
+                <div className='a'><FontAwesomeIcon icon={faTwitter} style={{ display: "block", marginBottom: '0', marginRight: '0.5rem', fontSize: '1.3rem', color: 'rgb(114, 179, 223)' }} /></div>
+                <h1>Twitter Feed</h1>
+                <span className="country">france</span>
+              </div>
+              <div className="twitterFeeds__body">
+                <ul className="tweets">
+                  <li className="tweet">
+                    <img src={avatarIcon} alt="avatar" className="avatar" />
+                    <p className="tweetContent">tw09io23qndalskcn[09  eet content </p>
+                  </li>
+                  <li className="tweet">
+                    <img src={avatarIcon} alt="avatar" className="avatar" />
+                    <p className="tweetContent">twee0[9q2ipon3lkv fsa[9-0 pq23i;ontvt content </p>
+                  </li>
+                  <li className="tweet">
+                    <img src={avatarIcon} alt="avatar" className="avatar" />
+                    <p className="tweetContent">twee0asfas  2oi'nf2fon'piqnfpinln'pacns'p3nq''npio'n [9q2ipon3lkv fsa[9-0 pq23i;ontvt content </p>
+                  </li>
+                </ul>
+                <button>Next</button>
+              </div>
+            </section>
+
+            <section className="card__body__weather-forcasts">
+              <ul>
+                <li className="weather-forcasts__day">
+                  <h1>mon</h1>
+                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
+                  <p className="temperature">9</p>
+                  <p className="status">raining</p>
+                </li>
+                <li className="weekDay">
+                  <h1>tue</h1>
+                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
+                  <p className="temperature">9</p>
+                  <p className="status">raining</p>
+                </li>
+
+                <div className="weekdayBreak1024"></div>
+
+                <li className="weekDay">
+                  <h1>wed</h1>
+                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
+                  <p className="temperature">9</p>
+                  <p className="status">raining</p>
+                </li>
+                <li className="weekDay">
+                  <h1 >thu</h1>
+                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
+                  <p className="temperature">9</p>
+                  <p className="status">raining</p>
+                </li>
+                <li className="weekDay">
+                  <h1 >fri</h1>
+                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
+                  <p className="temperature">9</p>
+                  <p className="status">raining</p>
+                </li>
+              </ul>
+            </section>
+          </div>
         </div>
-
-        <div className="cardBody">
-
-          <div className="twitterFeedSection">
-
-            <div className="twitterFeedSection-header">
-
-              <div className='a'><FontAwesomeIcon icon={faTwitter} style={{ display: "block", marginBottom: '0', marginRight: '0.5rem', fontSize: '1.3rem', color: 'rgb(114, 179, 223)' }} /></div>
-              <div className="title">Twitter Feed</div>
-              <div className="country">france</div>
-            </div>
-            <div className="twitterFeedSection-body">
-              <div className="tweets">
-                <div className="tweet">
-                  <img src={avatarIcon} alt="avatar" className="avatar" />
-                  <div className="tweetContent">tw09io23qndalskcn[09  eet content </div>
-                </div>
-                <div className="tweet">
-                  <img src={avatarIcon} alt="avatar" className="avatar" />
-                  <div className="tweetContent">twee0[9q2ipon3lkv fsa[9-0 pq23i;ontvt content </div>
-                </div>
-                <div className="tweet">
-                  <img src={avatarIcon} alt="avatar" className="avatar" />
-                  <div className="tweetContent">twee0asfas  2oi'nf2fon'piqnfpinln'pacns'p3nq''npio'n [9q2ipon3lkv fsa[9-0 pq23i;ontvt content </div>
-                </div>
-                <div className="navigation">
-                  <button>Next</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="cardBodyDivider744"></div>
-
-          <div className="weekDayDetails">
-
-            <div className="weekDay">
-              <div className="Day">mon</div>
-              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-              <div className="temperature">9</div>
-              <div className="status">raining</div>
-            </div>
-            <div className="weekDay">
-              <div className="Day">tue</div>
-              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-              <div className="temperature">9</div>
-              <div className="status">raining</div>
-            </div>
-
-            <div className="weekdayBreak1024"></div>
-
-            <div className="weekDay">
-              <div className="Day">wed</div>
-              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-              <div className="temperature">9</div>
-              <div className="status">raining</div>
-            </div>
-            <div className="weekDay">
-              <div className="Day">thu</div>
-              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-              <div className="temperature">9</div>
-              <div className="status">raining</div>
-            </div>
-            <div className="weekDay">
-              <div className="Day">fri</div>
-              <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-              <div className="temperature">9</div>
-              <div className="status">raining</div>
-            </div>
-          </div>
-
-
-        </div>
-
-      </div>
+      </main>
     </div>
   );
 }
