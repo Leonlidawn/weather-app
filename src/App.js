@@ -16,24 +16,25 @@ function App() {
         <div className="card">
           <div className="card__header">
             <div className="current-info">
-              <section >
-                <p className="current-info-temperature">12</p>
-                <p className="current-info-status">cloudy</p>
+              <section className="current-info__weather">
+                <p className="temperature">12</p>
+                <p className="status">cloudy</p>
 
                 <ul>
-                  <li className="current-info-humidity">
+                  <li >
                     <h1>humidity</h1>
-                    <p>64</p>
+                    <p className="humidity">64</p>
                   </li>
-
-                  <li className="current-info-wind">
+                  <li className="delimeter">
+                  </li>
+                  <li >
                     <h1>wind</h1>
-                    <p>12</p>
+                    <p className="wind">12</p>
                   </li>
                 </ul>
               </section>
 
-              <section className="current-info-country">france</section>
+              <section className="current-info__country">france</section>
             </div>
           </div>
 
@@ -43,12 +44,12 @@ function App() {
 
               <div className="twitter-feeds__header">
 
-                <div className='a'><FontAwesomeIcon icon={faTwitter} style={{ display: "block", marginBottom: '0', marginRight: '0.5rem', fontSize: '1.3rem', color: 'rgb(114, 179, 223)' }} /></div>
+                <span><FontAwesomeIcon icon={faTwitter} /></span>
                 <h1>Twitter Feed</h1>
                 <span className="twitter-feeds__country">france</span>
               </div>
 
-              <ul className="tweets-list">
+              <ul className="twitter-feeds__tweets-list">
                 <li className="tweet">
                   <img src={avatarIcon} alt="avatar" className="tweet__avatar" />
                   <p className="tweet__content">tw09io23qndalskcn[09  eet content </p>
@@ -66,44 +67,45 @@ function App() {
               <button className="twitter-feeds__next-button">next</button>
             </section>
 
-            <section className="weather-forcasts">
-              <ul>
-                <li className="forcast">
-                  <h1 className="forcast-day">mon</h1>
-                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
-                  <p className="forcast-temperature">9</p>
-                  <p className="forcast-status">raining</p>
-                </li>
+            <div className="delimeter"></div>
 
-                <li className="forcast">
-                  <h1 className="forcast-day">tue</h1>
-                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
-                  <p className="forcast-temperature">9</p>
-                  <p className="forcast-status">raining</p>
-                </li>
+            <ul className="weather-forcasts">
+              <li className="forcast">
+                <h1 className="forcast__day">mon</h1>
+                <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
+                <p className=" temperature forcast__temperature">9</p>
+                <p className="forcast__status">raining</p>
+              </li>
 
-                <li className="forcast">
-                  <h1 className="forcast-day">wed</h1>
-                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
-                  <p className="forcast-temperature">9</p>
-                  <p className="forcast-status">raining</p>
-                </li>
+              <li className="forcast">
+                <h1 className="forcast__day">tue</h1>
+                <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
+                <p className="temperature forcast__temperature">9</p>
+                <p className="forcast__status">raining</p>
+              </li>
+              <div className="break"></div>
 
-                <li className="forcast">
-                  <h1 className="forcast-day">thu</h1>
-                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
-                  <p className="forcast-temperature">9</p>
-                  <p className="forcast-status">raining</p>
-                </li>
+              <li className="forcast">
+                <h1 className="forcast__day">wed</h1>
+                <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
+                <p className="temperature forcast__temperature">9</p>
+                <p className="forcast__status">raining</p>
+              </li>
 
-                <li className="forcast">
-                  <h1 className="forcast-day">fri</h1>
-                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
-                  <p className="forcast-temperature">9</p>
-                  <p className="forcast-status">raining</p>
-                </li>
-              </ul>
-            </section>
+              <li className="forcast">
+                <h1 className="forcast__day">thu</h1>
+                <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
+                <p className="temperature forcast__temperature">9</p>
+                <p className="forcast__status">raining</p>
+              </li>
+
+              <li className="forcast">
+                <h1 className="forcast__day">fri</h1>
+                <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
+                <p className=" temperature forcast__temperature">9</p>
+                <p className="forcast__status">raining</p>
+              </li>
+            </ul>
           </div>
         </div>
       </main>
