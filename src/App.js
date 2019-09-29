@@ -15,91 +15,92 @@ function App() {
       <main>
         <div className="card">
           <div className="card__header">
-            <section className="card__header__current-weather">
-              <div>
-                <p className="temperature">12</p>
-                <p className="status">cloudy</p>
-              </div>
-              <ul>
-                <li className="humidity">
-                  <h1>humidity</h1>
-                  <p>64</p>
-                </li>
+            <div className="current-info">
+              <section >
+                <p className="current-info-temperature">12</p>
+                <p className="current-info-status">cloudy</p>
 
-                <li className="wind">
-                  <h1>wind</h1>
-                  <p>12</p>
-                </li>
-              </ul>
-            </section>
+                <ul>
+                  <li className="current-info-humidity">
+                    <h1>humidity</h1>
+                    <p>64</p>
+                  </li>
 
-            <section className="card__header__current-country">france</section>
+                  <li className="current-info-wind">
+                    <h1>wind</h1>
+                    <p>12</p>
+                  </li>
+                </ul>
+              </section>
 
+              <section className="current-info-country">france</section>
+            </div>
           </div>
 
           <div className="card__body">
 
-            <section className="card__body_twitterFeeds">
+            <section className="twitter-feeds">
 
-              <div className="twitterFeeds__header">
+              <div className="twitter-feeds__header">
 
                 <div className='a'><FontAwesomeIcon icon={faTwitter} style={{ display: "block", marginBottom: '0', marginRight: '0.5rem', fontSize: '1.3rem', color: 'rgb(114, 179, 223)' }} /></div>
                 <h1>Twitter Feed</h1>
-                <span className="country">france</span>
+                <span className="twitter-feeds__country">france</span>
               </div>
-              <div className="twitterFeeds__body">
-                <ul className="tweets">
-                  <li className="tweet">
-                    <img src={avatarIcon} alt="avatar" className="avatar" />
-                    <p className="tweetContent">tw09io23qndalskcn[09  eet content </p>
-                  </li>
-                  <li className="tweet">
-                    <img src={avatarIcon} alt="avatar" className="avatar" />
-                    <p className="tweetContent">twee0[9q2ipon3lkv fsa[9-0 pq23i;ontvt content </p>
-                  </li>
-                  <li className="tweet">
-                    <img src={avatarIcon} alt="avatar" className="avatar" />
-                    <p className="tweetContent">twee0asfas  2oi'nf2fon'piqnfpinln'pacns'p3nq''npio'n [9q2ipon3lkv fsa[9-0 pq23i;ontvt content </p>
-                  </li>
-                </ul>
-                <button>Next</button>
-              </div>
+
+              <ul className="tweets-list">
+                <li className="tweet">
+                  <img src={avatarIcon} alt="avatar" className="tweet__avatar" />
+                  <p className="tweet__content">tw09io23qndalskcn[09  eet content </p>
+                </li>
+                <li className="tweet">
+                  <img src={avatarIcon} alt="avatar" className="tweet__avatar" />
+                  <p className="tweet__content">twee0[9q2ipon3lkv fsa[9-0 pq23i;ontvt content </p>
+                </li>
+                <li className="tweet">
+                  <img src={avatarIcon} alt="avatar" className="tweet__avatar" />
+                  <p className="tweet__content">twee0asfas  2oi'nf2fon'piqnfpinln'pacns'p3nq''npio'n [9q2ipon3lkv fsa[9-0 pq23i;ontvt content </p>
+                </li>
+              </ul>
+
+              <button className="twitter-feeds__next-button">next</button>
             </section>
 
-            <section className="card__body__weather-forcasts">
+            <section className="weather-forcasts">
               <ul>
-                <li className="weather-forcasts__day">
-                  <h1>mon</h1>
-                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-                  <p className="temperature">9</p>
-                  <p className="status">raining</p>
-                </li>
-                <li className="weekDay">
-                  <h1>tue</h1>
-                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-                  <p className="temperature">9</p>
-                  <p className="status">raining</p>
+                <li className="forcast">
+                  <h1 className="forcast-day">mon</h1>
+                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
+                  <p className="forcast-temperature">9</p>
+                  <p className="forcast-status">raining</p>
                 </li>
 
-                <div className="weekdayBreak1024"></div>
+                <li className="forcast">
+                  <h1 className="forcast-day">tue</h1>
+                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
+                  <p className="forcast-temperature">9</p>
+                  <p className="forcast-status">raining</p>
+                </li>
 
-                <li className="weekDay">
-                  <h1>wed</h1>
-                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-                  <p className="temperature">9</p>
-                  <p className="status">raining</p>
+                <li className="forcast">
+                  <h1 className="forcast-day">wed</h1>
+                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
+                  <p className="forcast-temperature">9</p>
+                  <p className="forcast-status">raining</p>
                 </li>
-                <li className="weekDay">
-                  <h1 >thu</h1>
-                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-                  <p className="temperature">9</p>
-                  <p className="status">raining</p>
+
+                <li className="forcast">
+                  <h1 className="forcast-day">thu</h1>
+                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
+                  <p className="forcast-temperature">9</p>
+                  <p className="forcast-status">raining</p>
                 </li>
-                <li className="weekDay">
-                  <h1 >fri</h1>
-                  <img src={weatherIcon} alt="weather icon" className="weatherIcon" />
-                  <p className="temperature">9</p>
-                  <p className="status">raining</p>
+
+                <li className="forcast">
+                  <h1 className="forcast-day">fri</h1>
+                  <img src={weatherIcon} alt="weather icon" className="forcast-weatherIcon" />
+                  <p className="forcast-temperature">9</p>
+                  <p className="forcast-status">raining</p>
                 </li>
               </ul>
             </section>

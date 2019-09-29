@@ -1,0 +1,13 @@
+.app{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 360px;
+  background: url(./images/weatherBackground.jpg) 0 / cover fixed;
+
+  .card:before{
+    background: url(./images/weatherBackground.jpg) 0 / cover fixed;
+  }
+}
