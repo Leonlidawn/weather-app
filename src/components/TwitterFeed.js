@@ -10,15 +10,15 @@ function TwitterFeed() {
 
   const data = [
     {
-      avatarIcon: { avatarIcon },
+      avatarIcon: avatarIcon,
       tweetContent: 'Lorem aslkfn adsof a s s a 32noviwana 13 rfwlek'
     },
     {
-      avatarIcon: '../images/avatar.svg',
+      avatarIcon: avatarIcon,
       tweetContent: 'Lorem aslkfn adsof a s s a 32noviwana 13 rfwlek'
     },
     {
-      avatarIcon: './images/avatar.svg',
+      avatarIcon: avatarIcon,
       tweetContent: 'Lorem aslkfn adsof a s s a 32noviwana 13 rfwlek'
     }
 
@@ -29,7 +29,6 @@ function TwitterFeed() {
 
   return (
     <div className="twitter-feeds">
-
       <div className="twitter-feeds__header">
         <span><FontAwesomeIcon icon={faTwitter} /></span>
         <h1>Twitter Feed</h1>

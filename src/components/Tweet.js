@@ -8,7 +8,7 @@ function Tweet({ props }) {
     <>
       < li className="tweet" >
 
-        <img src="{props.avatarIcon} " alt="avatar" className="tweet__avatar" />
+        <img src={props.avatarIcon} alt="avatar" className="tweet__avatar" />
         <p className="tweet__content">{props.tweetContent}</p>
       </li>
     </>
