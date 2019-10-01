@@ -19,8 +19,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 22.5rem;
+  min-width: 18rem;
   background: url(./images/weatherBackground.jpg) 0/cover fixed;
+  overflow: scroll;
 }
 
 .card:before {
@@ -42,11 +43,10 @@
   position: relative;
   -webkit-box-shadow: 0 0 10px 1px #555;
           box-shadow: 0 0 10px 1px #555;
-  border-radius: 1.5%;
-  min-width: 22.5rem;
+  border-radius: 2rem;
+  min-width: 18rem;
   max-width: 90vw;
   max-height: 90vh;
-  overflow: scroll;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,6 +81,8 @@
   display: flex;
   padding-top: 3vh;
   padding-bottom: 3vh;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -128,7 +130,12 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  min-width: 22.5rem;
+  min-width: 18rem;
+}
+
+.current-info__weather .temperature {
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .current-info__weather ul {
@@ -167,12 +174,12 @@
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  min-width: 22.5rem;
+  min-width: 18rem;
 }
 
 @media all and (max-width: 920px) {
   .weather-forcasts .break {
-    min-width: 100%;
+    width: 100%;
     position: static;
   }
 }
@@ -223,7 +230,7 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   justify-items: flex-start;
-  min-width: 22.5rem;
+  min-width: 18rem;
 }
 
 .twitter-feeds__header {
@@ -261,6 +268,10 @@ ul {
 
 .twitter-feeds__header span:last-child::before {
   content: "#";
+}
+
+.twitter-feeds__feeds__tweets-list {
+  overflow: scroll;
 }
 
 .twitter-feeds__next-button {
