@@ -1,45 +1,61 @@
 import React from 'react';
 import weatherIcon from '../images/weatherIcon.svg';
-
+import Forcast from './Forecast';
 
 function WeatherForcast() {
+
+  const data = [
+    {
+      day: "mon",
+      weatherIcon: weatherIcon,
+      temperature: '12',
+      status: "raining",
+    },
+    {
+      day: "tue",
+      weatherIcon: weatherIcon,
+      temperature: '9',
+      status: "raining",
+    },
+    {
+      day: "wed",
+      weatherIcon: weatherIcon,
+      temperature: '-1',
+      status: "raining",
+    },
+    {
+      day: "thur",
+      weatherIcon: weatherIcon,
+      temperature: '30',
+      status: "raining",
+    },
+    {
+      day: "fri",
+      weatherIcon: weatherIcon,
+      temperature: '42',
+      status: "raining",
+    },
+  ]
+    ;
+
+
   return (
     <ul className="weather-forcasts">
-      <li className="forcast">
-        <h1 className="forcast__day">mon</h1>
-        <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
-        <p className=" temperature forcast__temperature">9</p>
-        <p className="forcast__status">raining</p>
-      </li>
-
-      <li className="forcast">
-        <h1 className="forcast__day">tue</h1>
-        <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
-        <p className="temperature forcast__temperature">9</p>
-        <p className="forcast__status">raining</p>
-      </li>
+      {
+        data.slice(0, 2).map(
+          item => (
+            <Forcast props={item} />
+          )
+        )
+      }
       <div className="break"></div>
-
-      <li className="forcast">
-        <h1 className="forcast__day">wed</h1>
-        <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
-        <p className="temperature forcast__temperature">9</p>
-        <p className="forcast__status">raining</p>
-      </li>
-
-      <li className="forcast">
-        <h1 className="forcast__day">thu</h1>
-        <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
-        <p className="temperature forcast__temperature">9</p>
-        <p className="forcast__status">raining</p>
-      </li>
-
-      <li className="forcast">
-        <h1 className="forcast__day">fri</h1>
-        <img src={weatherIcon} alt="weather icon" className="forcast__weatherIcon" />
-        <p className=" temperature forcast__temperature">9</p>
-        <p className="forcast__status">raining</p>
-      </li>
+      {
+        data.slice(2).map(
+          item => (
+            <Forcast props={item} />
+          )
+        )
+      }
     </ul>
 
 

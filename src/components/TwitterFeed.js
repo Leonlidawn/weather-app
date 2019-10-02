@@ -36,7 +36,6 @@ function TwitterFeed() {
       </div>
 
       <ul className="twitter-feeds__tweets-list">
-
         {
           data.map(item => (
             <Tweet props={item} />
