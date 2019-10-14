@@ -12,7 +12,7 @@ $sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-width: $app-min-width;
   background: $sky-background;
   overflow: scroll;
@@ -32,13 +32,14 @@ $sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
   filter: blur(5px);
 }
 .card {
+  margin-top: 5vh;
+  overflow: hidden;
   position: relative;
   box-shadow: 0 0 10px 1px #555;
   border-radius: 2rem;
   min-width: $app-min-width;
   // width: 90vw;
   max-width: 90vw;
-  max-height: 90vh;
   // overflow: scroll;
   display: flex;
   flex-direction: column;
@@ -56,7 +57,6 @@ $sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
     text-transform: uppercase;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
-    padding-bottom: 4px;
   }
 
   &__body {
@@ -110,16 +110,28 @@ $sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
     }
   }
 
-  &__country {
+  &__location {
     flex: 1;
-    font-size: 2.5rem;
     text-align: center;
-    font-weight: bold;
-    text-decoration-line: underline;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 5%;
+    p {
+      margin: 0;
+    }
+
+    p:first-child {
+      font-weight: bold;
+      font-size: 2.5rem;
+      text-decoration-line: underline;
+    }
+    p:last-child {
+      font-size: 1.5rem;
+    }
   }
 }
 
-.weather-forcasts {
+.weather-forecasts {
   display: flex;
   flex: 5;
   justify-content: space-between;
@@ -172,6 +184,7 @@ ul {
   justify-items: flex-start;
   min-width: $app-min-width;
 
+  overflow: scroll;
   &__header {
     display: flex;
     justify-content: center;
@@ -226,7 +239,7 @@ ul {
     word-break: break-word;
   }
 }
-.forcast {
+.forecast {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,8 +249,13 @@ ul {
     text-transform: capitalize;
   }
   p {
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-align: center;
   }
   &__weatherIcon {
     min-width: 4rem;

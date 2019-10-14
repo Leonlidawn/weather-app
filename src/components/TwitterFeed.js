@@ -10,14 +10,17 @@ function TwitterFeed() {
 
   const data = [
     {
+      uniqueId: 1,
       avatarIcon: avatarIcon,
       tweetContent: 'Lorem aslkfn adsof a s s a 32noviwana 13 rfwlek'
     },
     {
+      uniqueId: 2,
       avatarIcon: avatarIcon,
       tweetContent: 'Lorem aslkfn adsof a s s a 32noviwana 13 rfwlek'
     },
     {
+      uniqueId: 3,
       avatarIcon: avatarIcon,
       tweetContent: 'Lorem aslkfn adsof a s s a 32noviwana 13 rfwlek'
     }
@@ -32,13 +35,13 @@ function TwitterFeed() {
       <div className="twitter-feeds__header">
         <span><FontAwesomeIcon icon={faTwitter} /></span>
         <h1>Twitter Feed</h1>
-        <span className="twitter-feeds__country">france</span>
+        <span className="twitter-feeds__city">france</span>
       </div>
 
       <ul className="twitter-feeds__tweets-list">
         {
           data.map(item => (
-            <Tweet props={item} />
+            <Tweet key={item.uniqueId} props={item} />
           ))
         }
       </ul>

@@ -1,16 +1,15 @@
 import React from 'react';
 import TwitterFeed from './TwitterFeed';
-import WeatherForcast from './WeatherForcast';
+import WeatherForecast from './WeatherForecast';
 
 
-function CardBody() {
-
+function CardBody({ forecast }) {
+  //function component理由：这个变量是否是通过Props从父组件中获取？如果是，那么它不是一个状态。
   return (
-
     <div className="card__body">
       <TwitterFeed />
       <div className="delimeter"></div>
-      <WeatherForcast />
+      <WeatherForecast forecast={forecast} />
     </div>
 
   );
