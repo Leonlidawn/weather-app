@@ -1,7 +1,7 @@
 @import "./styles/normalize.css";
 @import "./styles/reset.css";
 $app-min-width: 18rem;
-$sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
+$sky-background: url(./images/cityBackground/sydney.jpg) 0 / cover fixed;
 
 .body {
   margin: 0;
@@ -29,7 +29,7 @@ $sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
   left: 0;
   z-index: -1;
   /* z = -1 will be stacked behind z=auto and z>=0 */
-  filter: blur(5px);
+  filter: blur(1px);
 }
 .card {
   margin-top: 5vh;
@@ -47,16 +47,15 @@ $sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
 
   &__header {
     // min-height: 100px;
-    background-color: rgba(239, 240, 206, 0.445);
-    padding-top: 3vh;
+    background-color: rgba(86, 165, 196, 0.651);
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: baseline;
     font-family: "Varela Round", sans-serif;
-
     text-transform: uppercase;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
+    padding: 1rem;
   }
 
   &__body {
@@ -81,20 +80,23 @@ $sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
   display: flex;
   align-items: center;
   flex-wrap: wrap-reverse;
-
   flex: 1;
   text-align: center;
 
-  &__weather {
+  & > * {
+    height: 80%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    flex: 1;
     min-width: $app-min-width;
+    flex: 1;
+  }
 
+  &__basic {
     .temperature {
       font-weight: bold;
       font-size: 2rem;
+      margin: 0;
     }
 
     ul {
@@ -110,155 +112,173 @@ $sky-background: url(./images/weatherBackground.jpg) 0 / cover fixed;
     }
   }
 
+  &__status {
+    padding-bottom: 2rem;
+  }
+
   &__location {
-    flex: 1;
-    text-align: center;
+    // text-align: center;
     padding-left: 10vw;
     padding-right: 10vw;
-    padding-top: 5%;
-    p {
-      margin: 0;
+    label {
+      border-bottom: 0.1rem solid black;
     }
+    select {
+      background: none;
+      border: none;
 
-    p:first-child {
-      font-weight: bold;
-      font-size: 2.5rem;
-      text-decoration-line: underline;
-    }
-    p:last-child {
-      font-size: 1.5rem;
-    }
-  }
-}
-
-.weather-forecasts {
-  display: flex;
-  flex: 5;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  // padding-left: 2rem;
-  // padding-right: 2rem;
-  min-width: $app-min-width;
-
-  @media all and (max-width: 920px) {
-    .break {
-      width: 100%;
-      position: static;
-    }
-  }
-}
-
-.delimeter {
-  margin-top: 1rem;
-  margin-bottom: 3px;
-  background-color: rgba(23, 24, 20, 0.329);
-  min-width: 0.2rem;
-  min-height: 0.3rem;
-}
-
-.temperature:after {
-  content: "‎°";
-}
-
-.humidity:after {
-  content: "‎%";
-}
-.wind:after {
-  content: "‎ k/m";
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-.break {
-  width: 0px;
-  position: absolute;
-}
-.twitter-feeds {
-  display: flex;
-  flex: 2;
-  flex-direction: column;
-  align-items: center;
-  justify-items: flex-start;
-  min-width: $app-min-width;
-
-  overflow: scroll;
-  &__header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.3rem;
-    flex-wrap: wrap;
-    width: 100%;
-    h1 {
-      margin-left: 2%;
-      margin-right: 5%;
-    }
-    span {
-      color: rgb(124, 162, 206);
-      &:first-child {
-        margin-top: -1rem;
+      &:hover {
+        cursor: pointer;
       }
-      &:last-child {
-        font-weight: bold;
-        &::before {
-          content: "#";
+      text-align-last: center;
+      font-size: 2.5rem;
+
+      @media all and (max-width: 760px) {
+        font-size: 2rem;
+      }
+    }
+    // p {
+    //   margin: 0;
+    // }
+
+    // p:first-child {
+    //   font-weight: bold;
+    //   font-size: 2.5rem;
+    //   text-decoration-line: underline;
+    // }
+    // p:last-child {
+    //   font-size: 1.5rem;
+    // }
+    // }
+  }
+
+  .weather-forecasts {
+    display: flex;
+    flex: 5;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // padding-left: 2rem;
+    // padding-right: 2rem;
+    min-width: $app-min-width;
+  }
+
+  .delimeter {
+    margin-top: 1rem;
+    margin-bottom: 3px;
+    background-color: rgba(23, 24, 20, 0.329);
+    min-width: 0.2rem;
+    min-height: 0.3rem;
+  }
+
+  .temperature:after {
+    content: "‎°C";
+  }
+
+  .humidity:after {
+    content: "‎%";
+  }
+  .wind:after {
+    content: "‎ m/sec";
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .twitter-feeds {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-items: flex-start;
+    min-width: $app-min-width;
+
+    overflow: scroll;
+    &__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3rem;
+      flex-wrap: wrap;
+      width: 100%;
+      h1 {
+        margin-left: 2%;
+        margin-right: 5%;
+      }
+      span {
+        color: rgb(124, 162, 206);
+        &:first-child {
+          margin-top: -1rem;
+        }
+        &:last-child {
+          font-weight: bold;
+          &::before {
+            content: "#";
+          }
         }
       }
     }
-  }
 
-  &__feeds__tweets-list {
-    overflow: scroll;
+    &__feeds__tweets-list {
+      overflow: scroll;
+    }
+    &__next-button {
+      font-family: "Varela Round", sans-serif;
+      text-decoration: underline;
+      width: fit-content;
+    }
   }
-  &__next-button {
-    font-family: "Varela Round", sans-serif;
-    text-decoration: underline;
-    width: fit-content;
-  }
-  // &__tweets-list {
-  // }
-}
-.tweet {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  display: flex;
-  align-items: center;
+  .tweet {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
 
-  &__avatar {
-    margin-top: -1rem;
-    padding-right: 1vw;
-    min-width: 2rem;
-    max-width: 2vw;
+    &__avatar {
+      margin-top: -1rem;
+      padding-right: 1vw;
+      min-width: 2rem;
+      max-width: 2vw;
+    }
+    &__content {
+      font-family: "Varela Round", sans-serif;
+      font-style: italic;
+      word-break: break-word;
+    }
   }
-  &__content {
-    font-family: "Varela Round", sans-serif;
-    font-style: italic;
-    word-break: break-word;
-  }
-}
-.forecast {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 5rem;
-  flex: 1;
-  &__day {
-    text-transform: capitalize;
-  }
-  p {
-    margin-block-start: 0.5rem;
-    margin-block-end: 0.5rem;
-    font-weight: bold;
-    font-size: 1rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    text-align: center;
-  }
-  &__weatherIcon {
-    min-width: 4rem;
-    max-width: 5vw;
+  .forecast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 5rem;
+    flex: 1;
+    &__day {
+      text-transform: capitalize;
+    }
+
+    @media all and (max-width: 920px) {
+      flex-basis: 33%;
+
+      &:nth-child(2),
+      &:nth-child(1) {
+        flex-basis: 49%;
+      }
+    }
+
+    p {
+      margin-block-start: 0.5rem;
+      margin-block-end: 0.5rem;
+      font-weight: bold;
+      font-size: 1rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      text-align: center;
+    }
+    &__weatherIcon {
+      min-width: 4rem;
+      max-width: 5vw;
+    }
   }
 }

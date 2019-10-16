@@ -40,9 +40,9 @@ function TwitterFeed() {
 
       <ul className="twitter-feeds__tweets-list">
         {
-          data.map(item => (
+          data.map(item =>
             <Tweet key={item.uniqueId} props={item} />
-          ))
+          )
         }
       </ul>
 

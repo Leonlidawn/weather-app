@@ -20,13 +20,13 @@
       -ms-flex-align: start;
           align-items: flex-start;
   min-width: 18rem;
-  background: url(./images/weatherBackground.jpg) 0/cover fixed;
+  background: url(./images/cityBackground/sydney.jpg) 0/cover fixed;
   overflow: scroll;
 }
 
 .card:before {
   /* 浮动于文字与card之间 */
-  background: url(./images/weatherBackground.jpg) 0/cover fixed;
+  background: url(./images/cityBackground/sydney.jpg) 0/cover fixed;
   content: "";
   position: absolute;
   top: 0;
@@ -35,8 +35,8 @@
   left: 0;
   z-index: -1;
   /* z = -1 will be stacked behind z=auto and z>=0 */
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
 }
 
 .card {
@@ -59,20 +59,20 @@
 }
 
 .card__header {
-  background-color: rgba(239, 240, 206, 0.445);
-  padding-top: 3vh;
+  background-color: rgba(86, 165, 196, 0.651);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   font-family: "Varela Round", sans-serif;
   text-transform: uppercase;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+  padding: 1rem;
 }
 
 .card__body {
@@ -116,7 +116,8 @@
   text-align: center;
 }
 
-.current-info__weather {
+.current-info > * {
+  height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,18 +128,19 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-width: 18rem;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  min-width: 18rem;
 }
 
-.current-info__weather .temperature {
+.current-info__basic .temperature {
   font-weight: bold;
   font-size: 2rem;
+  margin: 0;
 }
 
-.current-info__weather ul {
+.current-info__basic ul {
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -147,36 +149,41 @@
       justify-content: space-around;
 }
 
-.current-info__weather ul li h1 {
+.current-info__basic ul li h1 {
   font-size: 0.75rem;
 }
 
+.current-info__status {
+  padding-bottom: 2rem;
+}
+
 .current-info__location {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  text-align: center;
   padding-left: 10vw;
   padding-right: 10vw;
-  padding-top: 5%;
 }
 
-.current-info__location p {
-  margin: 0;
+.current-info__location label {
+  border-bottom: 0.1rem solid black;
 }
 
-.current-info__location p:first-child {
-  font-weight: bold;
+.current-info__location select {
+  background: none;
+  border: none;
+  text-align-last: center;
   font-size: 2.5rem;
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
 }
 
-.current-info__location p:last-child {
-  font-size: 1.5rem;
+.current-info__location select:hover {
+  cursor: pointer;
 }
 
-.weather-forecasts {
+@media all and (max-width: 760px) {
+  .current-info__location select {
+    font-size: 2rem;
+  }
+}
+
+.current-info .weather-forecasts {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -191,14 +198,7 @@
   min-width: 18rem;
 }
 
-@media all and (max-width: 920px) {
-  .weather-forecasts .break {
-    width: 100%;
-    position: static;
-  }
-}
-
-.delimeter {
+.current-info .delimeter {
   margin-top: 1rem;
   margin-bottom: 3px;
   background-color: rgba(23, 24, 20, 0.329);
@@ -206,30 +206,25 @@
   min-height: 0.3rem;
 }
 
-.temperature:after {
-  content: "‎°";
+.current-info .temperature:after {
+  content: "‎°C";
 }
 
-.humidity:after {
+.current-info .humidity:after {
   content: "‎%";
 }
 
-.wind:after {
-  content: "‎ k/m";
+.current-info .wind:after {
+  content: "‎ m/sec";
 }
 
-ul {
+.current-info ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.break {
-  width: 0px;
-  position: absolute;
-}
-
-.twitter-feeds {
+.current-info .twitter-feeds {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -248,7 +243,7 @@ ul {
   overflow: scroll;
 }
 
-.twitter-feeds__header {
+.current-info .twitter-feeds__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -264,32 +259,32 @@ ul {
   width: 100%;
 }
 
-.twitter-feeds__header h1 {
+.current-info .twitter-feeds__header h1 {
   margin-left: 2%;
   margin-right: 5%;
 }
 
-.twitter-feeds__header span {
+.current-info .twitter-feeds__header span {
   color: #7ca2ce;
 }
 
-.twitter-feeds__header span:first-child {
+.current-info .twitter-feeds__header span:first-child {
   margin-top: -1rem;
 }
 
-.twitter-feeds__header span:last-child {
+.current-info .twitter-feeds__header span:last-child {
   font-weight: bold;
 }
 
-.twitter-feeds__header span:last-child::before {
+.current-info .twitter-feeds__header span:last-child::before {
   content: "#";
 }
 
-.twitter-feeds__feeds__tweets-list {
+.current-info .twitter-feeds__feeds__tweets-list {
   overflow: scroll;
 }
 
-.twitter-feeds__next-button {
+.current-info .twitter-feeds__next-button {
   font-family: "Varela Round", sans-serif;
   text-decoration: underline;
   width: -webkit-fit-content;
@@ -297,7 +292,7 @@ ul {
   width: fit-content;
 }
 
-.tweet {
+.current-info .tweet {
   padding-left: 2rem;
   padding-right: 2rem;
   display: -webkit-box;
@@ -308,20 +303,20 @@ ul {
           align-items: center;
 }
 
-.tweet__avatar {
+.current-info .tweet__avatar {
   margin-top: -1rem;
   padding-right: 1vw;
   min-width: 2rem;
   max-width: 2vw;
 }
 
-.tweet__content {
+.current-info .tweet__content {
   font-family: "Varela Round", sans-serif;
   font-style: italic;
   word-break: break-word;
 }
 
-.forecast {
+.current-info .forecast {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -338,11 +333,22 @@ ul {
           flex: 1;
 }
 
-.forecast__day {
+.current-info .forecast__day {
   text-transform: capitalize;
 }
 
-.forecast p {
+@media all and (max-width: 920px) {
+  .current-info .forecast {
+    -ms-flex-preferred-size: 33%;
+        flex-basis: 33%;
+  }
+  .current-info .forecast:nth-child(2), .current-info .forecast:nth-child(1) {
+    -ms-flex-preferred-size: 49%;
+        flex-basis: 49%;
+  }
+}
+
+.current-info .forecast p {
   -webkit-margin-before: 0.5rem;
           margin-block-start: 0.5rem;
   -webkit-margin-after: 0.5rem;
@@ -354,7 +360,7 @@ ul {
   text-align: center;
 }
 
-.forecast__weatherIcon {
+.current-info .forecast__weatherIcon {
   min-width: 4rem;
   max-width: 5vw;
 }

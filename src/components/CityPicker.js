@@ -5,13 +5,20 @@ import React from 'react';
 class CityPicker extends React.Component {
   constructor() {
     super();
+
+    this.australia = { name: "Australia", code: "AU" };
+    this.china = { name: "China", code: "CN" };
+    this.canada = { name: "Canada", code: "CA" };
+    this.newZealand = { name: "New Zealand", code: "CK" };
+
     this.options = [
-      { name: "Sydney", country: "Australia" },
-      { name: "Melbourne", country: "Australia" },
-      { name: "Hongkong", country: "China" },
-      { name: "Guangzhou", country: "China" },
-      { name: "Toronto", country: "Canada" },
-      { name: "Auckland", country: "New Zealand" },
+      { name: "Sydney", country: this.australia },
+      { name: "Melbourne", country: this.australia },
+      { name: "Brisbane", country: this.australia },
+      { name: "Hongkong", country: this.china },
+      { name: "Guangzhou", country: this.china },
+      { name: "Toronto", country: this.canada },
+      { name: "Auckland", country: this.newZealand }
     ];
 
     this.state = {
@@ -28,13 +35,13 @@ class CityPicker extends React.Component {
     this.setState({ slectedIndex: e.target.value });
   }
 
-  //passing the index as select value is easier
+  //when have array as option list, passing the index as select value is easier
   render() {
     return (
       <label>
-        <select value={this.state.slectedIndex} onChange={this.handleChange}>
+        <select value={this.state.slectedIndex} onChange={this.handleChange} searchable="true">
           {this.options.map(
-            item => <option value={this.options.indexOf(item)} > {item.name}, {item.country}</option>
+            item => <option value={this.options.indexOf(item)} > {item.name}, {item.country.name}</option>
           )
           }
         </select>
