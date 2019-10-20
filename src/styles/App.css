@@ -20,13 +20,13 @@
       -ms-flex-align: start;
           align-items: flex-start;
   min-width: 18rem;
-  background: url(./images/cityBackground/sydney.jpg) 0/cover fixed;
+  background: url(../images/cityBackground/sydney.jpg) 0/cover fixed;
   overflow: scroll;
 }
 
 .card:before {
   /* 浮动于文字与card之间 */
-  background: url(./images/cityBackground/sydney.jpg) 0/cover fixed;
+  background: url(../images/cityBackground/sydney.jpg) 0/cover fixed;
   content: "";
   position: absolute;
   top: 0;
@@ -222,98 +222,6 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
-}
-
-.current-info .twitter-feeds {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-items: flex-start;
-  min-width: 18rem;
-  overflow: scroll;
-}
-
-.current-info .twitter-feeds__header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.3rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 100%;
-}
-
-.current-info .twitter-feeds__header h1 {
-  margin-left: 2%;
-  margin-right: 5%;
-}
-
-.current-info .twitter-feeds__header span {
-  color: #7ca2ce;
-}
-
-.current-info .twitter-feeds__header span:first-child {
-  margin-top: -1rem;
-}
-
-.current-info .twitter-feeds__header span:last-child {
-  font-weight: bold;
-}
-
-.current-info .twitter-feeds__header span:last-child::before {
-  content: "#";
-}
-
-.current-info .twitter-feeds__feeds__tweets-list {
-  overflow: scroll;
-}
-
-.current-info .twitter-feeds__next-button {
-  font-family: "Varela Round", sans-serif;
-  text-decoration: underline;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.current-info .tweet {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.current-info .tweet__avatar {
-  margin-top: -1rem;
-  padding-right: 1vw;
-  min-width: 2rem;
-  max-width: 2vw;
-}
-
-.current-info .tweet__content {
-  font-family: "Varela Round", sans-serif;
-  font-style: italic;
-  word-break: break-word;
 }
 
 .current-info .forecast {
