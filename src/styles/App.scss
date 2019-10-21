@@ -149,75 +149,74 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
     // p:last-child {
     //   font-size: 1.5rem;
     // }
-    // }
+  }
+}
+
+.weather-forecasts {
+  display: flex;
+  flex: 5;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  // padding-left: 2rem;
+  // padding-right: 2rem;
+  min-width: $app-min-width;
+}
+
+.delimeter {
+  margin-top: 1rem;
+  margin-bottom: 3px;
+  background-color: rgba(23, 24, 20, 0.329);
+  min-width: 0.2rem;
+  min-height: 0.3rem;
+}
+
+.temperature:after {
+  content: "‎°C";
+}
+
+.humidity:after {
+  content: "‎%";
+}
+.wind:after {
+  content: "‎ m/sec";
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 5rem;
+  flex: 1;
+  &__day {
+    text-transform: capitalize;
   }
 
-  .weather-forecasts {
-    display: flex;
-    flex: 5;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    // padding-left: 2rem;
-    // padding-right: 2rem;
-    min-width: $app-min-width;
-  }
+  @media all and (max-width: 920px) {
+    flex-basis: 33%;
 
-  .delimeter {
-    margin-top: 1rem;
-    margin-bottom: 3px;
-    background-color: rgba(23, 24, 20, 0.329);
-    min-width: 0.2rem;
-    min-height: 0.3rem;
-  }
-
-  .temperature:after {
-    content: "‎°C";
-  }
-
-  .humidity:after {
-    content: "‎%";
-  }
-  .wind:after {
-    content: "‎ m/sec";
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-
-  .forecast {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 5rem;
-    flex: 1;
-    &__day {
-      text-transform: capitalize;
+    &:nth-child(2),
+    &:nth-child(1) {
+      flex-basis: 49%;
     }
+  }
 
-    @media all and (max-width: 920px) {
-      flex-basis: 33%;
-
-      &:nth-child(2),
-      &:nth-child(1) {
-        flex-basis: 49%;
-      }
-    }
-
-    p {
-      margin-block-start: 0.5rem;
-      margin-block-end: 0.5rem;
-      font-weight: bold;
-      font-size: 1rem;
-      padding-right: 1rem;
-      padding-left: 1rem;
-      text-align: center;
-    }
-    &__weatherIcon {
-      min-width: 4rem;
-      max-width: 5vw;
-    }
+  p {
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-align: center;
+  }
+  &__weatherIcon {
+    min-width: 4rem;
+    max-width: 5vw;
   }
 }

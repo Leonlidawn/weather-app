@@ -70,13 +70,14 @@ function weatherAPI() {
         //days[date]是用date的值做key，days.date和days={date:??}都是把"date"做key
         if (!days[date]) { //key自动创建值发生在1层查询,所以在这里初始化
           days[date] = {
-            weatherRange: { status: [], wind: [], humidity: [], temperature: [] }
+            summary: { status: [], statusIcon: [], wind: [], humidity: [], temperature: [] }
           };
         }
         let info = extractWeatherInfo(item);
         days[date][time] = info;
-        let rangePointer = days[date].weatherRange;
+        let rangePointer = days[date].summary;
         rangePointer.status.push(info.status);
+        rangePointer.statusIcon.push(info.statusIcon);
         rangePointer.wind.push(info.wind);
         rangePointer.humidity.push(info.humidity);
         rangePointer.temperature.push(info.temperature);
@@ -86,11 +87,13 @@ function weatherAPI() {
     //下一步是比较出min, max , worst
     Object.values(days).map(
       day => {
-        let w = day.weatherRange;
+        let w = day.summary;
         if (w.wind.length > 1) w.wind = { min: w.wind.shift(), max: w.wind.pop() };
         if (w.humidity.length > 1) w.humidity = { min: w.humidity.shift(), max: w.humidity.pop() };
         if (w.temperature.length > 1) w.temperature = { min: w.temperature.shift(), max: w.temperature.pop() };
         if (w.status.length > 1) w.status = [... new Set(w.status)];
+        if (w.statusIcon.length > 1) w.statusIcon = [... new Set(w.statusIcon)];
+
       }
     );
 
