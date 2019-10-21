@@ -7,7 +7,6 @@ class CityPicker extends React.Component {
   constructor({ cityIndex }) {
     super();
 
-
     this.options = (new weatherAPI()).getLocaitonList();
 
     ((new weatherAPI()).getForecasts(cityIndex));
@@ -22,7 +21,7 @@ class CityPicker extends React.Component {
     // console.log("eC" + e.target.currentValue);
     // console.log("eT" + e.target.value);
 
-    this.setState({ slectedIndex: e.target.value });
+    this.setState({ selectedIndex: e.target.value });
   }
 
   //when have array as option list, passing the index as select value is easier

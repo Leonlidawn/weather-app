@@ -2,15 +2,15 @@ import React from 'react';
 import Forecast from './Forecast';
 
 
-function WeatherForecast({ forecast }) {
-  const data = forecast;
+function Forecasts({ forecasts }) {
 
   return (
+
     < ul className="weather-forecasts" >
       {
-        data.map(
+        Object.entries(forecasts).map(
           item => (
-            <Forecast key={item.date_epoch} props={item} />
+            <Forecast date={item[0]} forecast={item[1]} />
           )
         )
       }
@@ -20,4 +20,4 @@ function WeatherForecast({ forecast }) {
 }
 
 
-export default WeatherForecast;
+export default Forecasts;

@@ -8,6 +8,7 @@ class Card extends React.Component {
 
   constructor() {
     super();
+    this.weatherAPI = new WeatherAPI();
     this.state = {
       cityIndex: 0,
       currentWeather: {
@@ -18,35 +19,37 @@ class Card extends React.Component {
         temperature: this.loadingMessage,
       },
       isloading: true,
-      weatherforecast: {}
+      forecasts: {}
     }
   };
 
 
   async componentDidMount() {
-    var w = new WeatherAPI();
-    var currentWeather = await w.getCurrentWeather(2);
-    var location = (await w.getLocaitonList())[0];
+    let currentWeather = await this.weatherAPI.getCurrentWeather(this.state.cityIndex);
+    // var location = w.getLocaitonByIndex[this.state.cityIndex];
 
     const { status, statusIcon, humidity, wind, temperature } = currentWeather;
+
+    let forecasts = await this.weatherAPI.getForecasts(this.state.cityIndex);
     this.setState(
       {
         currentWeather: { status, statusIcon, humidity, wind, temperature },
+        forecasts: forecasts,
         isloading: false
       }
     );
 
+
   }
 
   render() {
-    // console.log(this.state.weatherforecast);
+    // console.log(this.state.forecasts);
 
 
     return (
       < div className="card" >
         < CardHeader currentWeather={this.state.currentWeather} cityIndex={this.state.cityIndex} />
-
-        {/* <CardBody weatherforecast={this.state.weatherforecast} /> */}
+        <CardBody forecasts={this.state.forecasts} />
       </div >
     )
   }
