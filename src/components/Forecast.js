@@ -4,17 +4,27 @@ import moment from "moment";
 function Forecast({ date, forecast }) {
 
   console.log(forecast);
-  const { humidity, status, statusIcon, temperature, wind } = forecast.summary;
-  return (
-    <>
-      <li className="forecast" >
-        <h1 className="forecast__day">{moment(date).format("ddd, DD MMM")}</h1>
-        <img src={statusIcon[0]} alt="weather icon" className="forecast__weatherIcon" />
-        <p className=" temperature forecast__temperature">{temperature.min}/{temperature.max}</p>
-        <p className="forecast__status">{status[0]}</p>
-      </li>
 
-    </>
+  const { status, temperature } = forecast.summary;
+  return (
+    <li className="forecast" >
+      <h1 className="forecast__day">{moment(date).format("ddd, DD MMM")}</h1>
+      <p className=" temperature forecast__temperature">{temperature.min}/{temperature.max}</p>
+
+      {Object.entries(status).sort().map(
+        s =>
+          <div key={s[1].description} className="forecast__period">
+            <div>
+              <img src={s[1].icon} alt="weather icon" className="weatherIcon" />
+              <span className="ratio">{Math.round((s[1].occurance) / forecast.totalPeriods * 100)}</span>
+            </div>
+            <p className="status">{s[1].description} </p>
+          </div>
+      )
+      }
+
+
+    </li>
 
   );
 

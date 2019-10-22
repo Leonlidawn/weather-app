@@ -83,7 +83,7 @@
   padding-bottom: 3vh;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(236, 224, 241, 0.9);
 }
 
 @media all and (max-width: 800px) {
@@ -183,13 +183,13 @@
   }
 }
 
-.weather-forecasts {
+.forecasts {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -198,19 +198,12 @@
   min-width: 18rem;
 }
 
-.delimeter {
-  margin-top: 1rem;
-  margin-bottom: 3px;
-  background-color: rgba(23, 24, 20, 0.329);
-  min-width: 0.2rem;
-  min-height: 0.3rem;
-}
-
 .temperature:after {
   content: "‎°C";
 }
 
-.humidity:after {
+.humidity:after,
+.ratio:after {
   content: "‎%";
 }
 
@@ -243,6 +236,20 @@ ul {
 
 .forecast__day {
   text-transform: capitalize;
+}
+
+.forecast__period {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media all and (max-width: 920px) {

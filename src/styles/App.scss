@@ -64,7 +64,7 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
     padding-bottom: 3vh;
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(236, 224, 241, 0.9);
 
     @media all and (max-width: 800px) {
       flex-direction: column-reverse;
@@ -152,9 +152,9 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
   }
 }
 
-.weather-forecasts {
+.forecasts {
   display: flex;
-  flex: 5;
+  flex: 1;
   justify-content: space-between;
   flex-wrap: wrap;
   // padding-left: 2rem;
@@ -162,19 +162,20 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
   min-width: $app-min-width;
 }
 
-.delimeter {
-  margin-top: 1rem;
-  margin-bottom: 3px;
-  background-color: rgba(23, 24, 20, 0.329);
-  min-width: 0.2rem;
-  min-height: 0.3rem;
-}
+// .delimeter {
+//   margin-top: 1rem;
+//   margin-bottom: 3px;
+//   background-color: rgba(23, 24, 20, 0.329);
+//   min-width: 0.2rem;
+//   min-height: 0.3rem;
+// }
 
 .temperature:after {
   content: "‎°C";
 }
 
-.humidity:after {
+.humidity:after,
+.ratio:after {
   content: "‎%";
 }
 .wind:after {
@@ -195,6 +196,13 @@ ul {
   flex: 1;
   &__day {
     text-transform: capitalize;
+  }
+
+  &__period {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   @media all and (max-width: 920px) {

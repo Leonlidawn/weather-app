@@ -1,6 +1,6 @@
 import React from 'react';
 import CityPicker from './CityPicker';
-function CardHeader({ currentWeather: { status, statusIcon, humidity, wind, temperature }, cityIndex }) {
+function CardHeader({ currentWeather: { status: { description, icon }, humidity, wind, temperature }, cityIndex }) {
   return (
     <div className="card__header" >
 
@@ -23,8 +23,8 @@ function CardHeader({ currentWeather: { status, statusIcon, humidity, wind, temp
         </section>
 
         <section className="current-info__status">
-          <img src={statusIcon} alt="weather icon" className="icon" />
-          <span className="status">{status}</span>
+          <img src={icon} alt="weather icon" className="icon" />
+          <span className="status">{description}</span>
         </section>
 
         <section className="current-info__location">

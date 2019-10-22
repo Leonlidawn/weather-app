@@ -8,7 +8,7 @@ function CardBody({ forecasts }) {
   // console.log(forecasts);
   return (
     <div className="card__body">
-      <div className="delimeter"></div>
+      {/* <div className="delimeter"></div> */}
       <Forecasts forecasts={forecasts} />
     </div>
 
