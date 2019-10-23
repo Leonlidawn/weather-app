@@ -1,32 +1,28 @@
 import { combineReducers } from 'redux';
 import { SELECT_LOCATION } from './actionTypes';
-import weatherAPI from '../services/weatherAPI'
-
-
-//  {
-//   currentWeather:currentWeather,
-//   forecasts: forecasts,
-// }
-// );
-// }
-
-
+import weatherAPI from '../services/weatherAPI';
 
 //reducer
-export const locationIndex = async (state = 0, action) => {
+export const weather = (index = 0, action) => {
   switch (action.type) {
     case (SELECT_LOCATION):
 
-      let currentWeather = await weatherAPI.getCurrentWeather(state);
-      let forecasts = await weatherAPI.getForecasts(state);
+      console.log(typeof (action.data));
+      console.log(action.data);
 
-      return action.locationIndex;
+      return action.data(index);
+
     default:
-      return state;
+      let data = async () => ({
+        currentWeather: await weatherAPI.getCurrentWeather(index),
+        forecasts: await weatherAPI.getForecasts(index),
+        locationIndex: 0
+      })
+      return data;
   }
 }
 
 
-export default async () => await combineReducers({
-  locationIndex //add more reducers here in the future.
+export default combineReducers({
+  weather //add more reducers here in the future.
 })

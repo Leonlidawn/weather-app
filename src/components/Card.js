@@ -13,13 +13,12 @@ class Card extends React.Component {
   //用static propTypes告诉react 这里应该接受什么properties为arguments
   static propTypes = {//https://medium.com/@assortedPickle/es6-static-properties-b7fd2a163328
     //   currentWeather: PropTypes.object.isRequired,
-    locationIndex: PropTypes.number.isRequired,
+    // locationIndex: PropTypes.number.isRequired,
 
     //   forecasts:PropTypes.object.isRequired,
 
     // isloading: PropTypes.bool
   }
-
 
 
   loadingMessage = "loading..."
@@ -41,6 +40,7 @@ class Card extends React.Component {
 
 
   async componentDidMount() {
+
     let currentWeather = await weatherAPI.getCurrentWeather(this.state.cityIndex);
     // var location = w.getLocaitonByIndex[this.state.cityIndex];
 
@@ -58,6 +58,7 @@ class Card extends React.Component {
 
   render() {
     // console.log(this.state.forecasts);
+    console.log(this.props.weather);
 
     return (
       < div className="card" >
@@ -72,7 +73,7 @@ class Card extends React.Component {
 //takes in store state and return infomation as props to your component.
 function mapStateToProps(state) {
   return {
-    locationIndex: state.locationIndex
+    weather: state.weather
   };
 }
 
