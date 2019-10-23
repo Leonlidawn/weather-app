@@ -27,6 +27,7 @@ function weatherAPI() {
   }
   //在这里async await,在外面调用的时候也要。每一层都要。得到原始数据
   const getData = async (apiEnding, index) => {
+    // console.debug(locaitonList[index]);
     const APIADDRESS = `https://api.openweathermap.org/data/2.5/${apiEnding}`
     let location = locaitonList[index].name + ',' + locaitonList[index].country.code;
     let mode = 'json';
@@ -135,4 +136,4 @@ function weatherAPI() {
 
 
 }
-export default weatherAPI;
+export default new weatherAPI();

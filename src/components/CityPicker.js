@@ -7,9 +7,9 @@ class CityPicker extends React.Component {
   constructor({ cityIndex }) {
     super();
 
-    this.options = (new weatherAPI()).getLocaitonList();
+    this.options = weatherAPI.getLocaitonList();
 
-    ((new weatherAPI()).getForecasts(cityIndex));
+    weatherAPI.getForecasts(cityIndex);
 
     this.state = {
       selectedIndex: cityIndex

@@ -1,6 +1,10 @@
 import React from 'react';
 import CityPicker from './CityPicker';
+
+
 function CardHeader({ currentWeather: { status: { description, icon }, humidity, wind, temperature }, cityIndex }) {
+
+
   return (
     <div className="card__header" >
 

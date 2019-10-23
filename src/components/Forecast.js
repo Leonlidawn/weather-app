@@ -23,7 +23,6 @@ function Forecast({ date, forecast }) {
       )
       }
 
-
     </li>
 
   );

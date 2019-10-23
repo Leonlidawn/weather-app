@@ -1,14 +1,31 @@
 import React from 'react';
 import CardHeader from './CardHeader';
 import CardBody from './CardBody';
-import WeatherAPI from '../services/weatherAPI'
+import weatherAPI from '../services/weatherAPI'
+import { connect } from 'react-redux';
+import { selectLocation } from '../redux/actions';
+import PropTypes from 'prop-types'
+
+// const locationIndex = useSelector(state => state.locationIndex);
+// console.log(locationIndex);
 
 class Card extends React.Component {
+  //用static propTypes告诉react 这里应该接受什么properties为arguments
+  static propTypes = {//https://medium.com/@assortedPickle/es6-static-properties-b7fd2a163328
+    //   currentWeather: PropTypes.object.isRequired,
+    locationIndex: PropTypes.number.isRequired,
+
+    //   forecasts:PropTypes.object.isRequired,
+
+    // isloading: PropTypes.bool
+  }
+
+
+
   loadingMessage = "loading..."
 
   constructor() {
     super();
-    this.weatherAPI = new WeatherAPI();
     this.state = {
       cityIndex: 0,
       currentWeather: {
@@ -18,19 +35,18 @@ class Card extends React.Component {
         wind: this.loadingMessage,
         temperature: this.loadingMessage,
       },
-      isloading: true,
       forecasts: {}
     }
   };
 
 
   async componentDidMount() {
-    let currentWeather = await this.weatherAPI.getCurrentWeather(this.state.cityIndex);
+    let currentWeather = await weatherAPI.getCurrentWeather(this.state.cityIndex);
     // var location = w.getLocaitonByIndex[this.state.cityIndex];
 
     const { status, statusIcon, humidity, wind, temperature } = currentWeather;
 
-    let forecasts = await this.weatherAPI.getForecasts(this.state.cityIndex);
+    let forecasts = await weatherAPI.getForecasts(this.state.cityIndex);
     this.setState(
       {
         currentWeather: { status, statusIcon, humidity, wind, temperature },
@@ -38,13 +54,10 @@ class Card extends React.Component {
         isloading: false
       }
     );
-
-
   }
 
   render() {
     // console.log(this.state.forecasts);
-
 
     return (
       < div className="card" >
@@ -55,5 +68,12 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
 
+//takes in store state and return infomation as props to your component.
+function mapStateToProps(state) {
+  return {
+    locationIndex: state.locationIndex
+  };
+}
+
+export default connect(mapStateToProps)(Card);
