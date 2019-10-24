@@ -4,16 +4,18 @@ import axios from 'axios';
 function weatherAPI() {
   let APPID = "a1cdbf6d63c7fbf4292dc8b3ea93e6df";
 
+  //the name here is for display
   let australia = { name: "Australia", code: "AU" };
   let china = { name: "China", code: "CN" };
+  let hongkong = { name: 'China', code: "HK" };
   let canada = { name: "Canada", code: "CA" };
-  let newZealand = { name: "New Zealand", code: "CK" };
+  let newZealand = { name: "New Zealand", code: "NZ" };
 
   const locaitonList = [
     { name: "Sydney", country: australia },
     { name: "Melbourne", country: australia },
     { name: "Brisbane", country: australia },
-    { name: "Hongkong", country: china },
+    { name: "Hong Kong", country: hongkong },
     { name: "Guangzhou", country: china },
     { name: "Toronto", country: canada },
     { name: "Auckland", country: newZealand }
@@ -27,8 +29,7 @@ function weatherAPI() {
   }
   //在这里async await,在外面调用的时候也要。每一层都要。得到原始数据
   const getData = async (apiEnding, index) => {
-    // console.debug(locaitonList[index]);
-    const APIADDRESS = `https://api.openweathermap.org/data/2.5/${apiEnding}`
+    const APIADDRESS = `https://api.openweathermap.org/data/2.5/${apiEnding}`;
     let location = locaitonList[index].name + ',' + locaitonList[index].country.code;
     let mode = 'json';
     let units = 'metric';
@@ -126,8 +127,6 @@ function weatherAPI() {
         // if (w.status.length > 1) w.status = [... new Set(w.status)];
       }
     );
-
-
     // console.log(days);
 
     return days;

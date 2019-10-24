@@ -4,23 +4,8 @@ import CardBody from './CardBody';
 import weatherAPI from '../services/weatherAPI'
 import { connect } from 'react-redux';
 import { selectLocation } from '../redux/actions';
-import PropTypes from 'prop-types'
-
-// const locationIndex = useSelector(state => state.locationIndex);
-// console.log(locationIndex);
 
 class Card extends React.Component {
-  //用static propTypes告诉react 这里应该接受什么properties为arguments
-  static propTypes = {//https://medium.com/@assortedPickle/es6-static-properties-b7fd2a163328
-    //   currentWeather: PropTypes.object.isRequired,
-    // locationIndex: PropTypes.number.isRequired,
-
-    //   forecasts:PropTypes.object.isRequired,
-
-    loading: PropTypes.bool
-  }
-
-
 
   constructor(props) {
     super(props);
@@ -39,12 +24,7 @@ class Card extends React.Component {
 
   render() {
     // console.log(this.state.forecasts);
-    // console.log(this.props);
-    if (this.props.loading) {
-      return < CardHeader currentWeather={this.props.currentWeather} cityIndex={this.props.cityIndex} />
-
-    }
-    console.log("this.props.loading=false", this.props.selectLocation);
+    console.log(this.props);
     return (
       < div className="card" >
         < CardHeader currentWeather={this.props.currentWeather} cityIndex={this.props.cityIndex} selectLocation={this.props.selectLocation} />
@@ -81,10 +61,10 @@ function mapStateToProps(state) {
       wind: loadingMessage,
       temperature: loadingMessage,
     },
+    forecasts: {},
     loading: true,
-    selectLocation: selectLocation
   }
 
 }
 
-export default connect(mapStateToProps)(Card);
+export default connect(mapStateToProps, { selectLocation })(Card);

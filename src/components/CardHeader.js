@@ -4,7 +4,7 @@ import CityPicker from './CityPicker';
 
 function CardHeader({ currentWeather: { status: { description, icon }, humidity, wind, temperature },
   cityIndex, selectLocation }) {
-  console.log(typeof (selectLocation));
+  // console.log(typeof (selectLocation));
 
   return (
     <div className="card__header" >

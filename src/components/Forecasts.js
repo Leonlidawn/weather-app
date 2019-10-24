@@ -1,10 +1,9 @@
 import React from 'react';
 import Forecast from './Forecast';
-import uuid from 'uuid/v4';
 
-function Forecasts({ forecasts }) {
-  let id = uuid();
+function Forecasts({ forecasts, loading }, ) {
   let array = Object.entries(forecasts);
+
   return (
     < ul className="forecasts" >
       {

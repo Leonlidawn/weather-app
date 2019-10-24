@@ -19,7 +19,7 @@ import { Provider } from 'react-redux'
 function App() {
 
   // if (!store.getState.weather.) {
-  store.dispatch(selectLocation(1));
+  // store.dispatch(selectLocation(1));
 
   return (
     <div className="app">
