@@ -17,14 +17,13 @@ class Card extends React.Component {
 
     //   forecasts:PropTypes.object.isRequired,
 
-    // isloading: PropTypes.bool
+    loading: PropTypes.bool
   }
 
 
-  loadingMessage = "loading..."
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       cityIndex: 0,
       currentWeather: {
@@ -38,32 +37,18 @@ class Card extends React.Component {
     }
   };
 
-
-  async componentDidMount() {
-
-    let currentWeather = await weatherAPI.getCurrentWeather(this.state.cityIndex);
-    // var location = w.getLocaitonByIndex[this.state.cityIndex];
-
-    const { status, statusIcon, humidity, wind, temperature } = currentWeather;
-
-    let forecasts = await weatherAPI.getForecasts(this.state.cityIndex);
-    this.setState(
-      {
-        currentWeather: { status, statusIcon, humidity, wind, temperature },
-        forecasts: forecasts,
-        isloading: false
-      }
-    );
-  }
-
   render() {
     // console.log(this.state.forecasts);
-    console.log(this.props.weather);
+    // console.log(this.props);
+    if (this.props.loading) {
+      return < CardHeader currentWeather={this.props.currentWeather} cityIndex={this.props.cityIndex} />
 
+    }
+    console.log("this.props.loading=false", this.props.selectLocation);
     return (
       < div className="card" >
-        < CardHeader currentWeather={this.state.currentWeather} cityIndex={this.state.cityIndex} />
-        <CardBody forecasts={this.state.forecasts} />
+        < CardHeader currentWeather={this.props.currentWeather} cityIndex={this.props.cityIndex} selectLocation={this.props.selectLocation} />
+        <CardBody forecasts={this.props.forecasts} />
       </div >
     )
   }
@@ -72,9 +57,34 @@ class Card extends React.Component {
 
 //takes in store state and return infomation as props to your component.
 function mapStateToProps(state) {
+  // console.log("maping state")
+  let loadingMessage = "loading..."
+
+  if (!state.weather.loading) {
+
+    return {
+      currentWeather: state.weather.currentWeather,
+      forecasts: state.weather.forecasts,
+      locationIndex: state.weather.locationIndex,
+      loading: false,
+      selectLocation: selectLocation
+
+    };
+  }
+
   return {
-    weather: state.weather
-  };
+    cityIndex: 0,
+    currentWeather: {
+      status: loadingMessage,
+      statusIcon: loadingMessage,
+      humidity: loadingMessage,
+      wind: loadingMessage,
+      temperature: loadingMessage,
+    },
+    loading: true,
+    selectLocation: selectLocation
+  }
+
 }
 
 export default connect(mapStateToProps)(Card);

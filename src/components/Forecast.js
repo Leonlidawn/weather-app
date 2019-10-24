@@ -3,7 +3,7 @@ import moment from "moment";
 
 function Forecast({ date, forecast }) {
 
-  console.log(forecast);
+  // console.log(forecast);
 
   const { status, temperature } = forecast.summary;
   return (

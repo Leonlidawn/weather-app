@@ -4,21 +4,31 @@ import weatherAPI from '../services/weatherAPI';
 
 //reducer
 export const weather = (index = 0, action) => {
+  console.log("actiontype是" + action.type)
+
   switch (action.type) {
+
     case (SELECT_LOCATION):
+      console.log("reducer:selectLocation被调用了")
 
-      console.log(typeof (action.data));
-      console.log(action.data);
+      action.data.loading = false;
+      return action.data;
 
-      return action.data(index);
+    default://初始化的时候也会用到
+      console.log("reducer:default被调用了")
 
-    default:
-      let data = async () => ({
-        currentWeather: await weatherAPI.getCurrentWeather(index),
-        forecasts: await weatherAPI.getForecasts(index),
-        locationIndex: 0
-      })
-      return data;
+      // let data = async () => {
+      //   let currentWeather = await weatherAPI.getCurrentWeather(index)
+
+      //   return {
+      //     currentWeather,
+      //     forecasts: await weatherAPI.getForecasts(index),
+      //     locationIndex: index
+      //   }
+      // }
+      // // let a = await weatherAPI.getCurrentWeather(index);
+      // console.log(data());
+      return { loading: true };
   }
 }
 

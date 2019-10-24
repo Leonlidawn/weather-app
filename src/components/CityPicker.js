@@ -4,8 +4,10 @@ import weatherAPI from "../services/weatherAPI"
 
 
 class CityPicker extends React.Component {
-  constructor({ cityIndex }) {
+  constructor({ cityIndex, selectLocation }) {
     super();
+    console.log(typeof selectLocation);
+    console.log(selectLocation);
 
     this.options = weatherAPI.getLocaitonList();
 
@@ -22,7 +24,14 @@ class CityPicker extends React.Component {
     // console.log("eT" + e.target.value);
 
     this.setState({ selectedIndex: e.target.value });
+    console.log(typeof (this.props.selectLocation));
+    this.props.selectLocation(e.target.value);
   }
+
+
+  // componentDidMount() {
+
+  // }
 
   //when have array as option list, passing the index as select value is easier
   render() {
@@ -44,3 +53,4 @@ class CityPicker extends React.Component {
 export default CityPicker;
 
 
+//这里需要传进一个Function,是selectLocation

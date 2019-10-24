@@ -2,8 +2,9 @@ import React from 'react';
 import CityPicker from './CityPicker';
 
 
-function CardHeader({ currentWeather: { status: { description, icon }, humidity, wind, temperature }, cityIndex }) {
-
+function CardHeader({ currentWeather: { status: { description, icon }, humidity, wind, temperature },
+  cityIndex, selectLocation }) {
+  console.log(typeof (selectLocation));
 
   return (
     <div className="card__header" >
@@ -32,7 +33,7 @@ function CardHeader({ currentWeather: { status: { description, icon }, humidity,
         </section>
 
         <section className="current-info__location">
-          <CityPicker cityIndex={cityIndex} />
+          <CityPicker cityIndex={cityIndex} selectLocation={selectLocation} />
         </section>
       </div>
     </div>
