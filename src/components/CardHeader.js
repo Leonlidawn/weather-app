@@ -3,8 +3,9 @@ import CityPicker from './CityPicker';
 
 
 function CardHeader({ currentWeather: { status: { description, icon }, humidity, wind, temperature },
-  cityIndex, selectLocation }) {
-  // console.log(typeof (selectLocation));
+  locationIndex, locationOptions, selectLocation }) {
+  console.log(locationIndex);
+  console.log(locationOptions);
 
   return (
     <div className="card__header" >
@@ -33,7 +34,7 @@ function CardHeader({ currentWeather: { status: { description, icon }, humidity,
         </section>
 
         <section className="current-info__location">
-          <CityPicker cityIndex={cityIndex} selectLocation={selectLocation} />
+          <CityPicker locationIndex={locationIndex} selectLocation={selectLocation} locationOptions={locationOptions} />
         </section>
       </div>
     </div>
