@@ -62,12 +62,12 @@ function weatherAPI() {
   });
 
   //for Public use
-  this.getCurrentWeather = async (index) => {
+  this.fetchCurrentWeather = async (index) => {
     let rawData = (await getData("weather", index)).data;
     return extractWeatherInfo(rawData);
   }
 
-  this.getForecasts = async (index = 0) => {
+  this.fetchForecasts = async (index = 0) => {
     let rawData = (await getData("forecast", index)).data;
     let days = {};
     let daysCounter = 0;

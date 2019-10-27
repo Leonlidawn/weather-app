@@ -1,7 +1,7 @@
 @import "./normalize.css";
 @import "./reset.css";
 $app-min-width: 18rem;
-$sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
+$sky-background: url("") 0 / cover fixed;
 
 .body {
   margin: 0;
@@ -18,7 +18,7 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
   overflow: scroll;
 }
 //for blurred glass effect
-.card:before {
+#blur-glass {
   /* 浮动于文字与card之间 */
   background: $sky-background;
   content: "";
@@ -29,10 +29,12 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
   left: 0;
   z-index: -1;
   /* z = -1 will be stacked behind z=auto and z>=0 */
-  filter: blur(1px);
+  filter: blur(5px);
 }
 .card {
   margin-top: 5vh;
+  margin-bottom: 5vh;
+
   overflow: hidden;
   position: relative;
   box-shadow: 0 0 10px 1px #555;
@@ -163,8 +165,7 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
 
   .forecast {
     border-left: 1px solid azure;
-  }
-  .forecast {
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -180,6 +181,19 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 0;
+      div {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          max-width: 50%;
+          height: auto;
+        }
+      }
+      .status {
+        margin-block-start: 0;
+      }
     }
 
     @media all and (max-width: 920px) {

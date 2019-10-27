@@ -20,13 +20,13 @@
       -ms-flex-align: start;
           align-items: flex-start;
   min-width: 18rem;
-  background: url(../images/cityBackground/sydney.jpg) 0/cover fixed;
+  background: url("") 0/cover fixed;
   overflow: scroll;
 }
 
-.card:before {
+#blur-glass {
   /* 浮动于文字与card之间 */
-  background: url(../images/cityBackground/sydney.jpg) 0/cover fixed;
+  background: url("") 0/cover fixed;
   content: "";
   position: absolute;
   top: 0;
@@ -35,12 +35,13 @@
   left: 0;
   z-index: -1;
   /* z = -1 will be stacked behind z=auto and z>=0 */
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
 }
 
 .card {
   margin-top: 5vh;
+  margin-bottom: 5vh;
   overflow: hidden;
   position: relative;
   -webkit-box-shadow: 0 0 10px 1px #555;
@@ -200,9 +201,6 @@
 
 .forecasts .forecast {
   border-left: 1px solid azure;
-}
-
-.forecasts .forecast {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -236,6 +234,26 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 0;
+}
+
+.forecasts .forecast__period div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.forecasts .forecast__period div .icon {
+  max-width: 50%;
+  height: auto;
+}
+
+.forecasts .forecast__period .status {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 
 @media all and (max-width: 920px) {
