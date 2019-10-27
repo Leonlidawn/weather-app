@@ -19,10 +19,6 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-
-    // let melbourne = "url(https://images5.alphacoders.com/366/thumb-1920-366259.jpg)";
-    // let brisbane = "https://backgrounddownload.com/wp-content/uploads/2018/09/edificios-background-6.jpg";
-    // //根据不同的index修改图片，最好对应locationOptions里的。
   };
 
   changeBackgroundByLocation = (locationName) => {
@@ -55,7 +51,6 @@ class App extends React.Component {
   componentDidMount() {
     //default index is 0
     this.props.selectLocation(0);
-    // changeBackgroundByLocation(locationOptions(locationIndex));
 
 
   }
@@ -65,8 +60,6 @@ class App extends React.Component {
     if (!this.props.loading) {
       this.changeBackgroundByLocation(this.props.locationOptions[this.props.locationIndex].name);
     }
-    // console.log(this.state.forecasts);
-    // console.log(this.props);
     return (
       <div className="app">
         < div className="card" >

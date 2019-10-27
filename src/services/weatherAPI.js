@@ -2,14 +2,18 @@
 import axios from 'axios';
 
 function weatherAPI() {
-  let APPID = "a1cdbf6d63c7fbf4292dc8b3ea93e6df";
+  const APPID = "a1cdbf6d63c7fbf4292dc8b3ea93e6df";
 
   //the name here is for display
-  let australia = { name: "Australia", code: "AU" };
-  let china = { name: "China", code: "CN" };
-  let hongkong = { name: 'China', code: "HK" };
-  let canada = { name: "Canada", code: "CA" };
-  let newZealand = { name: "New Zealand", code: "NZ" };
+  const australia = { name: "Australia", code: "AU" };
+  const china = { name: "China", code: "CN" };
+  const hongkong = { name: 'China', code: "HK" };
+  const canada = { name: "Canada", code: "CA" };
+  const newZealand = { name: "New Zealand", code: "NZ" };
+
+  const cacheTime = 3600 * 1000;
+  let weatherData = {};
+
 
   const locaitonList = [
     { name: "Sydney", country: australia },
@@ -61,13 +65,12 @@ function weatherAPI() {
     temperature: rawData.main.temp
   });
 
-  //for Public use
-  this.fetchCurrentWeather = async (index) => {
+  const fetchCurrentWeather = async (index) => {
     let rawData = (await getData("weather", index)).data;
     return extractWeatherInfo(rawData);
   }
 
-  this.fetchForecasts = async (index = 0) => {
+  const fetchForecasts = async (index = 0) => {
     let rawData = (await getData("forecast", index)).data;
     let days = {};
     let daysCounter = 0;
@@ -140,6 +143,25 @@ function weatherAPI() {
     return days;
   };
 
+
+  // for public use, will cache the result for sometime after updated.
+  this.fetchWeather = async (index) => {
+    const cityData = weatherData[index];
+    const timestamp = Date.now();
+
+    //最短1小时更新一次
+    if (!cityData || (timestamp - cityData.lastUpdated) > cacheTime) {
+      let currentWeather = await fetchCurrentWeather(index);
+      let forecasts = await fetchForecasts(index);
+      let data = { currentWeather, forecasts };
+
+      weatherData[index] = {
+        data,
+        lastUpdated: Date.now()
+      }
+    }
+    return weatherData[index].data;
+  }
 
 
 }

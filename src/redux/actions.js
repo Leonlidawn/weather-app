@@ -29,10 +29,12 @@ export const selectLocation = (locationIndex) => {
   // console.log("action:selectLocation被调用了")
   return async dispatch => {
     // console.log("action:selectLocation的二次dispatch会调用")
+    let weather = await weatherAPI.fetchWeather(locationIndex);
+
     await dispatch({
       type: SELECT_LOCATION, data: {
-        currentWeather: await weatherAPI.fetchCurrentWeather(locationIndex),
-        forecasts: await weatherAPI.fetchForecasts(locationIndex),
+        currentWeather: weather.currentWeather,
+        forecasts: weather.forecasts,
         locationIndex: locationIndex
       }
     });
