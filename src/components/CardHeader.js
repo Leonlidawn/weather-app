@@ -1,11 +1,11 @@
 import React from 'react';
 import CityPicker from './CityPicker';
 
-
 function CardHeader({ currentWeather: { status: { description, icon }, humidity, wind, temperature },
-  locationIndex, locationOptions, selectLocation }) {
+  locationIndex, locationOptions, selectLocation, loading }) {
   console.log(locationIndex);
   console.log(locationOptions);
+
 
   return (
     <div className="card__header" >
@@ -34,7 +34,7 @@ function CardHeader({ currentWeather: { status: { description, icon }, humidity,
         </section>
 
         <section className="current-info__location">
-          <CityPicker locationIndex={locationIndex} selectLocation={selectLocation} locationOptions={locationOptions} />
+          <CityPicker locationIndex={locationIndex} selectLocation={selectLocation} locationOptions={locationOptions} loading={loading} />
         </section>
       </div>
     </div>

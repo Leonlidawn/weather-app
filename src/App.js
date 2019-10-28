@@ -8,7 +8,6 @@ import guangzhou from './images/cityBackground/guangzhou.jpg'
 import toronto from './images/cityBackground/toronto.jpg'
 import auckland from './images/cityBackground/auckland.jpg'
 
-
 import React from 'react';
 import CardHeader from './components/CardHeader';
 import CardBody from './components/CardBody';
@@ -42,17 +41,22 @@ class App extends React.Component {
         break;
       default: locationImage = sydney;
     }
-    app.style.backgroundImage = `url(${locationImage}) `;
-    console.log(locationImage);
 
-    glass.style.backgroundImage = app.style.backgroundImage
+    let newBackground = new Image();
+    newBackground.src = locationImage;
+
+    // 确定图片加载完成后再进行背景图片切换
+    newBackground.onload = function () {
+      app.style.backgroundImage = `url(${newBackground.src}) `;
+      glass.style.backgroundImage = app.style.backgroundImage
+    }
+
+
   };
 
   componentDidMount() {
     //default index is 0
     this.props.selectLocation(0);
-
-
   }
 
   render() {
@@ -64,8 +68,8 @@ class App extends React.Component {
       <div className="app">
         < div className="card" >
           <div id="blur-glass"></div>
-          < CardHeader currentWeather={this.props.currentWeather} locationIndex={this.props.locationIndex} selectLocation={this.props.selectLocation} locationOptions={this.props.locationOptions} />
-          <CardBody forecasts={this.props.forecasts} />
+          < CardHeader loading={this.props.loading} currentWeather={this.props.currentWeather} locationIndex={this.props.locationIndex} selectLocation={this.props.selectLocation} locationOptions={this.props.locationOptions} />
+          <CardBody forecasts={this.props.forecasts} loading={this.props.loading} />
         </div >
       </div>
     )

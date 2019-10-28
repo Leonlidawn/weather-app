@@ -199,6 +199,10 @@
   min-width: 18rem;
 }
 
+.forecasts .loadingIcon {
+  margin: auto;
+}
+
 .forecasts .forecast {
   border-left: 1px solid azure;
   display: -webkit-box;
