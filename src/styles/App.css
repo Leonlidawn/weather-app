@@ -22,10 +22,14 @@
   min-width: 18rem;
   background: url("") 0/cover fixed;
   overflow: scroll;
+  -webkit-transition: background-image 0.5s;
+  transition: background-image 0.5s;
 }
 
 #blur-glass {
   /* 浮动于文字与card之间 */
+  -webkit-transition: background-image 0.5s;
+  transition: background-image 0.5s;
   background: url("") 0/cover fixed;
   content: "";
   position: absolute;

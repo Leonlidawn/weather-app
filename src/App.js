@@ -47,6 +47,7 @@ class App extends React.Component {
 
     // 确定图片加载完成后再进行背景图片切换
     newBackground.onload = function () {
+
       app.style.backgroundImage = `url(${newBackground.src}) `;
       glass.style.backgroundImage = app.style.backgroundImage
     }
