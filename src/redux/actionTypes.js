@@ -1,5 +1,5 @@
 
 //action type
-export const SELECT_LOCATION = 'select_location'
+export const SELECT_LOCATION = 'select_location';
 
 

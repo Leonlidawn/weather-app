@@ -1,7 +1,8 @@
 @import "./normalize.css";
 @import "./reset.css";
 $app-min-width: 18rem;
-$sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
+$sky-background: url("") 0 / cover fixed;
+$image-transition-time: 0.5s;
 
 .body {
   margin: 0;
@@ -16,10 +17,14 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
   min-width: $app-min-width;
   background: $sky-background;
   overflow: scroll;
+  transition: background-image $image-transition-time;
 }
+
 //for blurred glass effect
-.card:before {
+#blur-glass {
   /* 浮动于文字与card之间 */
+  transition: background-image $image-transition-time;
+
   background: $sky-background;
   content: "";
   position: absolute;
@@ -29,10 +34,12 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
   left: 0;
   z-index: -1;
   /* z = -1 will be stacked behind z=auto and z>=0 */
-  filter: blur(1px);
+  filter: blur(5px);
 }
 .card {
   margin-top: 5vh;
+  margin-bottom: 5vh;
+
   overflow: hidden;
   position: relative;
   box-shadow: 0 0 10px 1px #555;
@@ -161,15 +168,18 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
   // padding-right: 2rem;
   min-width: $app-min-width;
 
-  .forecast {
-    border-left: 1px solid azure;
+  .loadingIcon {
+    margin: auto;
   }
   .forecast {
+    border-left: 1px solid azure;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: 5rem;
     flex: 1;
+
     &__day {
       text-transform: capitalize;
       margin-bottom: 0px;
@@ -180,6 +190,23 @@ $sky-background: url(../images/cityBackground/sydney.jpg) 0 / cover fixed;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 0;
+      div {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          //Notice that width:50% will resize it to 50% of the available space for the image,
+          //while max-width:50% will resize the image to 50% of its natural size.
+          //This is very important to take into account when using this rules for mobile web design,
+          //so for mobile web design max-width should always be used.
+          max-width: 50%;
+          height: auto;
+        }
+      }
+      .status {
+        margin-block-start: 0;
+      }
     }
 
     @media all and (max-width: 920px) {

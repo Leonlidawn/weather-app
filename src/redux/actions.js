@@ -1,4 +1,4 @@
-import { SELECT_LOCATION } from './actionTypes';
+import { SELECT_LOCATION, FETCH_WEATHER } from './actionTypes';
 import weatherAPI from '../services/weatherAPI';
 
 //同步action返回一个对象，异步action返回的是一个函数
@@ -26,17 +26,21 @@ export const incrementAsync = (number)=>(
 
 //this is async , 返回一个 async 函数
 export const selectLocation = (locationIndex) => {
-  console.log("action:selectLocation被调用了")
+  // console.log("action:selectLocation被调用了")
   return async dispatch => {
-    console.log("action:selectLocation的二次dispatch会调用")
+    // console.log("action:selectLocation的二次dispatch会调用")
+    let weather = await weatherAPI.fetchWeather(locationIndex);
+
     await dispatch({
       type: SELECT_LOCATION, data: {
-        currentWeather: await weatherAPI.getCurrentWeather(locationIndex),
-        forecasts: await weatherAPI.getForecasts(locationIndex),
+        currentWeather: weather.currentWeather,
+        forecasts: weather.forecasts,
         locationIndex: locationIndex
       }
     });
   }
 };
+
+
 
 

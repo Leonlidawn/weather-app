@@ -17,7 +17,7 @@ function Forecast({ date, forecast }) {
         s =>
           <div key={s[1].description} className="forecast__period">
             <div>
-              <img src={s[1].icon} alt="weather icon" className="weatherIcon" />
+              <img src={s[1].icon} alt="weather icon" className="icon" />
               <span className="ratio">{Math.round((s[1].occurance) / forecast.totalPeriods * 100)}</span>
             </div>
             <p className="status">{s[1].description} </p>
