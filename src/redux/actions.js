@@ -35,6 +35,7 @@ export const selectLocation = (locationIndex) => {
       type: SELECT_LOCATION, data: {
         currentWeather: weather.currentWeather,
         forecasts: weather.forecasts,
+        lastUpdated: weather.lastUpdated,
         locationIndex: locationIndex
       }
     });

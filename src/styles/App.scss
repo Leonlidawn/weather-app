@@ -2,7 +2,7 @@
 @import "./reset.css";
 $app-min-width: 18rem;
 $sky-background: url("") 0 / cover fixed;
-$image-transition-time: 0.5s;
+$transition-time: 0.5s;
 
 .body {
   margin: 0;
@@ -17,13 +17,13 @@ $image-transition-time: 0.5s;
   min-width: $app-min-width;
   background: $sky-background;
   overflow: scroll;
-  transition: background-image $image-transition-time;
+  transition: background-image $transition-time;
 }
 
 //for blurred glass effect
 #blur-glass {
   /* 浮动于文字与card之间 */
-  transition: background-image $image-transition-time;
+  transition: background-image $transition-time;
 
   background: $sky-background;
   content: "";
@@ -57,12 +57,18 @@ $image-transition-time: 0.5s;
     background-color: rgba(86, 165, 196, 0.651);
     display: flex;
     justify-content: space-around;
-    align-items: baseline;
+    align-items: center;
     font-family: "Varela Round", sans-serif;
     text-transform: uppercase;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     padding: 1rem;
+    flex-direction: column;
+    .time {
+      color: rgba(185, 218, 228, 0.623);
+      font-weight: bold;
+      text-transform: none;
+    }
   }
 
   &__body {

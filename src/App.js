@@ -13,7 +13,11 @@ import CardHeader from './components/CardHeader';
 import CardBody from './components/CardBody';
 import { connect } from 'react-redux';
 import { selectLocation } from './redux/actions';
+
+import loadingSquare from './images/loadingSquare.gif';
+
 import weatherAPI from "./services/weatherAPI"
+
 class App extends React.Component {
 
   constructor(props) {
@@ -61,15 +65,15 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.props.locationOptions[this.props.locationIndex]);
     if (!this.props.loading) {
       this.changeBackgroundByLocation(this.props.locationOptions[this.props.locationIndex].name);
     }
     return (
       <div className="app">
+
         < div className="card" >
           <div id="blur-glass"></div>
-          < CardHeader loading={this.props.loading} currentWeather={this.props.currentWeather} locationIndex={this.props.locationIndex} selectLocation={this.props.selectLocation} locationOptions={this.props.locationOptions} />
+          < CardHeader lastUpdated={this.props.lastUpdated} loading={this.props.loading} currentWeather={this.props.currentWeather} locationIndex={this.props.locationIndex} selectLocation={this.props.selectLocation} locationOptions={this.props.locationOptions} />
           <CardBody forecasts={this.props.forecasts} loading={this.props.loading} />
         </div >
       </div>
@@ -81,16 +85,17 @@ class App extends React.Component {
 //takes in store state and return infomation as props to your component.
 function mapStateToProps(state) {
   // console.log("maping state")
-  let loadingMessage = "loading..."
+  let loadingMessage = "..."
 
   if (!state.weather.loading) {
-
+    console.log(state.weather.lastUpdated);
     return {
       locationOptions: weatherAPI.getLocaitonList(),
       locationIndex: state.weather.locationIndex,
 
       currentWeather: state.weather.currentWeather,
       forecasts: state.weather.forecasts,
+      lastUpdated: state.weather.lastUpdated,
 
       loading: false,
       selectLocation: selectLocation
@@ -103,14 +108,15 @@ function mapStateToProps(state) {
     locationIndex: 0,
 
     currentWeather: {
-      status: loadingMessage,
-      statusIcon: loadingMessage,
+      status: { description: "", icon: loadingSquare },
       humidity: loadingMessage,
       wind: loadingMessage,
       temperature: loadingMessage,
     },
     forecasts: {},
     loading: true,
+    lastUpdated: loadingMessage
+
 
 
   }

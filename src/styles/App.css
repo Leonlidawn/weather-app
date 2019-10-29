@@ -70,14 +70,24 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: "Varela Round", sans-serif;
   text-transform: uppercase;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   padding: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.card__header .time {
+  color: rgba(185, 218, 228, 0.623);
+  font-weight: bold;
+  text-transform: none;
 }
 
 .card__body {

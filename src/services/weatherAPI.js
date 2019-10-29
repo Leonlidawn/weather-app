@@ -32,7 +32,7 @@ function weatherAPI() {
     return locaitonList[index];
   }
   //在这里async await,在外面调用的时候也要。每一层都要。得到原始数据
-  const getData = async (apiEnding, index) => {
+  const fetchRawData = async (apiEnding, index) => {
     const APIADDRESS = `https://api.openweathermap.org/data/2.5/${apiEnding}`;
     let location = locaitonList[index].name + ',' + locaitonList[index].country.code;
     let mode = 'json';
@@ -66,12 +66,12 @@ function weatherAPI() {
   });
 
   const fetchCurrentWeather = async (index) => {
-    let rawData = (await getData("weather", index)).data;
+    let rawData = (await fetchRawData("weather", index)).data;
     return extractWeatherInfo(rawData);
   }
 
-  const fetchForecasts = async (index = 0) => {
-    let rawData = (await getData("forecast", index)).data;
+  const fetchForecasts = async (index) => {
+    let rawData = (await fetchRawData("forecast", index)).data;
     let days = {};
     let daysCounter = 0;
     //  rawData.list.map(
@@ -153,14 +153,9 @@ function weatherAPI() {
     if (!cityData || (timestamp - cityData.lastUpdated) > cacheTime) {
       let currentWeather = await fetchCurrentWeather(index);
       let forecasts = await fetchForecasts(index);
-      let data = { currentWeather, forecasts };
-
-      weatherData[index] = {
-        data,
-        lastUpdated: Date.now()
-      }
+      weatherData[index] = { currentWeather, forecasts, lastUpdated: Date.now() };
     }
-    return weatherData[index].data;
+    return weatherData[index];
   }
 
 
