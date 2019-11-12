@@ -160,7 +160,7 @@ function weatherAPI() {
         lastUpdated: Date.now()
       }
     }
-    return weatherData[index].data;
+    return weatherData[index];
   }
 
 

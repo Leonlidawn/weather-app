@@ -33,9 +33,10 @@ export const selectLocation = (locationIndex) => {
 
     await dispatch({
       type: SELECT_LOCATION, data: {
-        currentWeather: weather.currentWeather,
-        forecasts: weather.forecasts,
-        locationIndex: locationIndex
+        currentWeather: weather.data.currentWeather,
+        forecasts: weather.data.forecasts,
+        locationIndex: locationIndex,
+        lastUpdated: weather.lastUpdated
       }
     });
   }

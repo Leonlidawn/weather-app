@@ -10,13 +10,13 @@ $image-transition-time: 0.5s;
 }
 .app {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   min-width: $app-min-width;
   background: $sky-background;
-  overflow: scroll;
   transition: background-image $image-transition-time;
 }
 
@@ -40,7 +40,7 @@ $image-transition-time: 0.5s;
   margin-top: 5vh;
   margin-bottom: 5vh;
 
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   box-shadow: 0 0 10px 1px #555;
   border-radius: 2rem;
@@ -72,7 +72,6 @@ $image-transition-time: 0.5s;
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
     background-color: rgba(236, 224, 241, 0.8);
-
     @media all and (max-width: 800px) {
       flex-direction: column-reverse;
       .delimeter {
@@ -125,37 +124,26 @@ $image-transition-time: 0.5s;
 
   &__location {
     // text-align: center;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    // padding-left: 5vw;
+    // padding-right: 5vw;
+    flex-grow: 2;
+
     label {
+      max-width: 100%;
       border-bottom: 0.1rem solid black;
     }
     select {
       background: none;
       border: none;
-
+      max-width: 100%;
       &:hover {
         cursor: pointer;
       }
-      text-align-last: center;
-      font-size: 2.5rem;
-
+      font-size: 2rem;
       @media all and (max-width: 760px) {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     }
-    // p {
-    //   margin: 0;
-    // }
-
-    // p:first-child {
-    //   font-weight: bold;
-    //   font-size: 2.5rem;
-    //   text-decoration-line: underline;
-    // }
-    // p:last-child {
-    //   font-size: 1.5rem;
-    // }
   }
 }
 
@@ -164,6 +152,7 @@ $image-transition-time: 0.5s;
   flex: 1;
   justify-content: space-between;
   flex-wrap: wrap;
+
   // padding-left: 2rem;
   // padding-right: 2rem;
   min-width: $app-min-width;
@@ -172,8 +161,11 @@ $image-transition-time: 0.5s;
     margin: auto;
   }
   .forecast {
-    border-left: 1px solid azure;
-
+    border-left: 1px solid rgba(240, 255, 255, 0.377);
+    &:first-of-type {
+      border-left: none;
+    }
+    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -215,6 +207,9 @@ $image-transition-time: 0.5s;
       &:nth-child(2),
       &:nth-child(1) {
         flex-basis: 49%;
+      }
+      &:nth-child(3) {
+        border-left: none;
       }
     }
 

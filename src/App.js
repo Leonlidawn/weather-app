@@ -14,6 +14,7 @@ import CardBody from './components/CardBody';
 import { connect } from 'react-redux';
 import { selectLocation } from './redux/actions';
 import weatherAPI from "./services/weatherAPI"
+import moment from 'moment';
 class App extends React.Component {
 
   constructor(props) {
@@ -65,8 +66,30 @@ class App extends React.Component {
     if (!this.props.loading) {
       this.changeBackgroundByLocation(this.props.locationOptions[this.props.locationIndex].name);
     }
+
+    let time = Math.round((Date.now() - this.props.lastUpdated) / 1000);
+    let timeText = 'ago';
+    if (time < 60) {
+      if (time == 0) {
+        timeText = ' just now ^_^';
+      } else {
+        timeText = time + ' sec ago';
+      }
+
+    } else {
+      time = Math.round(time / 60);
+      timeText = time + ' min ago';
+    }
+
+
+
     return (
       <div className="app">
+        <span className="time-text">
+          last updated:{timeText}
+
+
+        </span>
         < div className="card" >
           <div id="blur-glass"></div>
           < CardHeader loading={this.props.loading} currentWeather={this.props.currentWeather} locationIndex={this.props.locationIndex} selectLocation={this.props.selectLocation} locationOptions={this.props.locationOptions} />
@@ -93,15 +116,16 @@ function mapStateToProps(state) {
       forecasts: state.weather.forecasts,
 
       loading: false,
-      selectLocation: selectLocation
+      selectLocation: selectLocation,
 
+      lastUpdated: state.weather.lastUpdated
     };
   }
 
   return {
     locationOptions: [],
     locationIndex: 0,
-
+    lastUpdated: loadingMessage,
     currentWeather: {
       status: loadingMessage,
       statusIcon: loadingMessage,
