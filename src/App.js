@@ -1,4 +1,4 @@
-import './styles/App.css';
+import './styles/App.scss';
 
 import sydney from './images/cityBackground/sydney.jpg'
 import melbourne from './images/cityBackground/melbourne.jpg'

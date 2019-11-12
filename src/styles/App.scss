@@ -46,7 +46,7 @@ $image-transition-time: 0.5s;
   border-radius: 2rem;
   min-width: $app-min-width;
   // width: 90vw;
-  max-width: 90vw;
+  max-width: 80vw;
   // overflow: scroll;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@ $image-transition-time: 0.5s;
 
   &__header {
     // min-height: 100px;
-    background-color: rgba(86, 165, 196, 0.651);
+    background-color: rgba(86, 165, 196, 0.6);
     display: flex;
     justify-content: space-around;
     align-items: baseline;
@@ -71,7 +71,7 @@ $image-transition-time: 0.5s;
     padding-bottom: 3vh;
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
-    background-color: rgba(236, 224, 241, 0.9);
+    background-color: rgba(236, 224, 241, 0.8);
 
     @media all and (max-width: 800px) {
       flex-direction: column-reverse;
