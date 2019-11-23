@@ -1,0 +1,43 @@
+.todos {
+  font-size: 2rem;
+  z-index: 1;
+  button {
+    background-color: rgba(46, 41, 41, 0.356);
+    border: none;
+    appearance: none;
+    box-shadow: none;
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .close {
+    width: 0;
+  }
+  ol {
+    transition: width 0.3s;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    background-color: rgba(16, 16, 16, 0.808);
+    // height: 0;
+    padding-top: 3rem;
+
+    li {
+      margin: 1rem;
+      color: rgb(46, 187, 230);
+      margin-left: 3rem;
+      list-style-position: outside;
+      list-style-type: decimal;
+    }
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

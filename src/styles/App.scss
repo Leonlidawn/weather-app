@@ -20,6 +20,12 @@ $image-transition-time: 0.5s;
   transition: background-image $image-transition-time;
 }
 
+.todos {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 //for blurred glass effect
 #blur-glass {
   /* 浮动于文字与card之间 */
@@ -155,7 +161,7 @@ $image-transition-time: 0.5s;
 
   // padding-left: 2rem;
   // padding-right: 2rem;
-  min-width: $app-min-width;
+  // min-width: $app-min-width;
 
   .loadingIcon {
     margin: auto;

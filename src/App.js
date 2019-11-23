@@ -9,12 +9,13 @@ import toronto from './images/cityBackground/toronto.jpg'
 import auckland from './images/cityBackground/auckland.jpg'
 
 import React from 'react';
-import CardHeader from './components/CardHeader';
-import CardBody from './components/CardBody';
+import CardHeader from './components/Card/CardHeader';
+import CardBody from './components/Card/CardBody';
+import Todos from './components/Todos/Todos';
 import { connect } from 'react-redux';
 import { selectLocation } from './redux/actions';
 import weatherAPI from "./services/weatherAPI"
-import moment from 'moment';
+// import moment from 'moment';
 class App extends React.Component {
 
   constructor(props) {
@@ -85,10 +86,9 @@ class App extends React.Component {
 
     return (
       <div className="app">
+        <Todos />
         <span className="time-text">
           last updated:{timeText}
-
-
         </span>
         < div className="card" >
           <div id="blur-glass"></div>

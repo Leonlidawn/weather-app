@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { SELECT_LOCATION } from './actionTypes';
-import weatherAPI from '../services/weatherAPI';
+// import weatherAPI from '../services/weatherAPI';
 
 //reducer
 export const weather = (index = 0, action) => {
