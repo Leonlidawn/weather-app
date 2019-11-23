@@ -8,7 +8,7 @@ const todoList = [
   "allow picking location in a map, 1 possible api for map is mapbox",
   "use https",
   "give it a proper domain name",
-  "add google account login and allowing saving favourite locations for users"
+  "add google account login and allow saving favourite locations for users"
 ]
 
 class Todos extends React.Component {
