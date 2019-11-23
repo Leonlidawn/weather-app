@@ -8,6 +8,7 @@ the sole purpose of this project to help myself to gain a better understanding o
 - front-end
   - scss
   - react
-  - redux
-  - react-redux
-  - redux-thunk
+  - redux + react-redux + redux-thunk
+  
+- back-end
+  - node.js + express
