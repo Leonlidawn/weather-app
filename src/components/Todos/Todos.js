@@ -8,23 +8,23 @@ const todoList = [
   "allow picking location in a map, 1 possible api for map is mapbox",
   "use https",
   "give it a proper domain name",
-  "add google account login and allowing saving favourate locations for users"
+  "add google account login and allowing saving favourite locations for users"
 ]
 
 class Todos extends React.Component {
 
   componentDidMount() {
-    this.list = document.querySelector('ol');
+    this.todos = document.querySelector('.todos');
     this.body = document.querySelector('body');
     console.log(this.body);
     this.toggle = () => {
       // console.log(this.list.classList);
-      if (this.list.classList.contains('close')) {
+      if (this.todos.classList.contains('close')) {
         this.body.classList.add('overflow-hidden');
-        this.list.classList.remove('close')
+        this.todos.classList.remove('close')
       } else {
         this.body.classList.remove('overflow-hidden');
-        this.list.classList.add('close')
+        this.todos.classList.add('close')
       }
 
 
@@ -37,12 +37,12 @@ class Todos extends React.Component {
 
     console.group(this.toggle);
     return (
-      <div className="todos">
+      <div className="todos close">
 
         <button onClick={this.toggle}>
           Todos
         </button>
-        <ol className="close">
+        <ol>
           {todoList.map(
             (todo) =>
               <li key={todoList.indexOf(todo)}>

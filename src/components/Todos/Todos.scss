@@ -1,22 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Kalam&display=swap");
 .todos {
-  font-size: 2rem;
+  font-family: "Kalam", cursive;
   z-index: 1;
   button {
+    margin: 0.5rem;
     background-color: rgba(46, 41, 41, 0.356);
     border: none;
     appearance: none;
     box-shadow: none;
+    font-size: 3rem;
+    color: white;
+    border-bottom: 1px rgba(255, 255, 255, 0.623) solid;
     &:hover {
       cursor: pointer;
     }
     &:focus {
-      box-shadow: none;
+      // box-shadow: none;
+      outline: none;
     }
   }
-  .close {
-    width: 0;
-  }
+
   ol {
+    font-size: 2rem;
     transition: width 0.3s;
     z-index: -1;
     position: absolute;
@@ -26,7 +31,7 @@
     overflow: scroll;
     background-color: rgba(16, 16, 16, 0.808);
     // height: 0;
-    padding-top: 3rem;
+    padding-top: 4rem;
 
     li {
       margin: 1rem;
@@ -34,6 +39,19 @@
       margin-left: 3rem;
       list-style-position: outside;
       list-style-type: decimal;
+    }
+  }
+
+  &.close {
+    button {
+      font-size: 1rem;
+      height: 3.2rem;
+      width: 3.2rem;
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px rgba(255, 145, 0, 0.699);
+    }
+    ol {
+      width: 0;
     }
   }
 }
