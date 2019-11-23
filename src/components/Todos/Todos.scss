@@ -2,7 +2,7 @@
 .todos {
   $transition-time: 0.3s;
   $todo-list-background-color: rgba(16, 16, 16, 0.8);
-
+  $open-button-height: 4rem;
   font-family: "Kalam", cursive;
   z-index: 1;
   button {
@@ -28,19 +28,22 @@
     position: absolute;
     z-index: -1;
     width: 100vw;
-    height: 4rem;
+    height: $open-button-height;
     background-color: $todo-list-background-color;
   }
   ol {
+    margin-top: $open-button-height;
     font-size: 2rem;
     transition: width $transition-time;
     z-index: -1;
     position: absolute;
-    top: 4rem;
+    top: 0rem;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 4rem);
+
     overflow: scroll;
     background-color: $todo-list-background-color;
+
     li {
       margin: 1rem;
       color: rgb(46, 187, 230);
