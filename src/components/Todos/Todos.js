@@ -42,7 +42,7 @@ class Todos extends React.Component {
         <button onClick={this.toggle}>
           Todos
         </button>
-        <ol>
+        <ol className="close">
           {todoList.map(
             (todo) =>
               <li key={todoList.indexOf(todo)}>
