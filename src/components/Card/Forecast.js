@@ -11,7 +11,7 @@ function Forecast({ date, forecast }) {
       <h1 className="forecast__day">{moment(date).format("ddd")}</h1>
       <p className="forecast__day">({moment(date).format("DD MMM")})</p>
 
-      <p className=" temperature forecast__temperature">{temperature.min}/{temperature.max}</p>
+      <p className=" temperature forecast__temperature">{Math.round(temperature.min)}/{Math.round(temperature.max)}</p>
 
       {Object.entries(status).sort().map(
         s =>

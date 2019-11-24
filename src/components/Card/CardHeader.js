@@ -12,7 +12,7 @@ function CardHeader({ currentWeather: { status: { description, icon }, humidity,
 
       <div className="current-info" >
         <section className="current-info__basic">
-          <p className="temperature">{temperature} </p>
+          <p className="temperature">{Math.round(temperature)} </p>
 
           <ul>
             <li >
