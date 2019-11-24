@@ -1,6 +1,7 @@
 import React from 'react'
 import './Todos.scss'
 const todoList = [
+  "serve background images with different resolutions base on device screen size",
   "make css more readable and structured",
   "add text input and auto suggestion for picking cities",
   "more locations",
