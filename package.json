@@ -12,7 +12,7 @@
     "forever": "^1.0.0",
     "minimist": "^1.2.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "nodesass": "0.0.2-security",
     "path": "^0.12.7",
     "react": "^16.9.0",
